@@ -17,28 +17,28 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> ProductDetailList() 
+        public async Task<IActionResult> ProductDetailList() 
         {
             var values = await _ProductDetailService.GetAllProductDetailAsync();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetProductDetailById(string id)
+        public async Task<IActionResult> GetProductDetailById(string id)
         {
             var values = await _ProductDetailService.GetByIdProductDetailAsync(id);
             return Ok(values);
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateProductDetail(CreateProductDetailDto createProductDetailDto)
+        public async Task<IActionResult> CreateProductDetail(CreateProductDetailDto createProductDetailDto)
         {
             await _ProductDetailService.CreateProductDetailAsync(createProductDetailDto);
             return Ok("Ürün başarıyla eklendi");
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteProductDetail(string id)
+        public async Task<IActionResult> DeleteProductDetail(string id)
         {
             await _ProductDetailService.DeleteProductDetailAsync(id);
             return Ok("Ürün başarıyla silindi");
@@ -46,7 +46,7 @@ namespace MultiShop.Catalog.Controllers
 
 
         [HttpPut]
-        public async Task<ActionResult> UpdateProductDetail(UpdateProductDetailDto updateProductDetailDto)
+        public async Task<IActionResult> UpdateProductDetail(UpdateProductDetailDto updateProductDetailDto)
         {
             await _ProductDetailService.UpdateProductDetailAsync(updateProductDetailDto);
             return Ok("Ürün başarıyla güncellendi");

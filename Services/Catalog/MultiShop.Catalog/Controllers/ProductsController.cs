@@ -17,28 +17,28 @@ namespace MultiShop.Catalog.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> ProductList() 
+        public async Task<IActionResult> ProductList() 
         {
             var values = await _ProductService.GetAllProductAsync();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetProductById(string id)
+        public async Task<IActionResult> GetProductById(string id)
         {
             var values = await _ProductService.GetByIdProductAsync(id);
             return Ok(values);
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateProduct(CreateProductDto createProductDto)
+        public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
         {
             await _ProductService.CreateProductAsync(createProductDto);
             return Ok("Ürün başarıyla eklendi");
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteProduct(string id)
+        public async Task<IActionResult> DeleteProduct(string id)
         {
             await _ProductService.DeleteProductAsync(id);
             return Ok("Ürün başarıyla silindi");
@@ -46,7 +46,7 @@ namespace MultiShop.Catalog.Controllers
 
 
         [HttpPut]
-        public async Task<ActionResult> UpdateProduct(UpdateProductDto updateProductDto)
+        public async Task<IActionResult> UpdateProduct(UpdateProductDto updateProductDto)
         {
             await _ProductService.UpdateProductAsync(updateProductDto);
             return Ok("Ürün başarıyla güncellendi");
