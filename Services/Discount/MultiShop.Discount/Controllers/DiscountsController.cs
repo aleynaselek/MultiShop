@@ -20,14 +20,14 @@ namespace MultiShop.Discount.Controllers
         [HttpGet]
         public async Task<IActionResult> DiscountCouponList()
         {
-            var values = _discountService.GetAllDiscountCouponAsync();
+            var values = await _discountService.GetAllDiscountCouponAsync();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDiscountCouponById(int id)
         {
-            var values = _discountService.GetByIdDiscountCouponAsync(id);
+            var values = await _discountService.GetByIdDiscountCouponAsync(id);
             return Ok(values);
         }
 
@@ -39,10 +39,10 @@ namespace MultiShop.Discount.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DelteDiscountCoupon(int id)
+        public async Task<IActionResult> DeleteDiscountCoupon(int id)
         {
-            var values = _discountService.DeleteDiscountCouponAsync(id);
-            return Ok(  "Kupon başarıyla silindi");
+            await _discountService.DeleteDiscountCouponAsync(id);
+            return Ok("Kupon başarıyla silindi");
         }
 
         [HttpPut]

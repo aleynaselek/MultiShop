@@ -18,6 +18,7 @@ namespace MultiShop.Discount.Services
         {
             string query = "insert into Coupons (Code,Rate,IsActive,ValidDate) values (@code,@rate,@isActive,@validDate)";
             var parameters = new DynamicParameters();
+            parameters.Add("@code", createDiscountCouponDto.Code);
             parameters.Add("@rate", createDiscountCouponDto.Rate);
             parameters.Add("@isActive", createDiscountCouponDto.IsActive);
             parameters.Add("@validDate", createDiscountCouponDto.ValidDate);
@@ -29,7 +30,7 @@ namespace MultiShop.Discount.Services
 
         public async Task DeleteDiscountCouponAsync(int id)
         {
-            string query = "Delete From Coupons where @CouponId=@couponId";
+            string query = "Delete From Coupons Where @CouponId=@couponId";
             var parameters = new DynamicParameters();
             parameters.Add("@couponId", id);
             using (var connection = _context.CreateConnection())
@@ -55,7 +56,7 @@ namespace MultiShop.Discount.Services
             parameters.Add("@couponId", id);
             using (var connection = _context.CreateConnection())
             {
-                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query);
+                var values = await connection.QueryFirstOrDefaultAsync<GetByIdDiscountCouponDto>(query, parameters);
                 return values;
             }
         }
@@ -67,7 +68,8 @@ namespace MultiShop.Discount.Services
             parameters.Add("@code", updateDiscountCouponDto.Code);
             parameters.Add("@rate", updateDiscountCouponDto.Rate);
             parameters.Add("@isActive", updateDiscountCouponDto.IsActive);
-            parameters.Add("@validaDate", updateDiscountCouponDto.ValidDate);
+            parameters.Add("@validDate", updateDiscountCouponDto.ValidDate);
+            parameters.Add("@couponId", updateDiscountCouponDto.CouponId);
             using (var connection = _context.CreateConnection())
             { 
                 await connection.ExecuteAsync(query, parameters);
