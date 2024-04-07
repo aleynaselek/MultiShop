@@ -7,12 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\CQRS\Commands\AddressCommands\" />
-    <Folder Include="Features\CQRS\Handlers\AddressHandlers\" />
     <Folder Include="Features\Mediator\Commands\" />
     <Folder Include="Features\Mediator\Handlers\" />
     <Folder Include="Features\Mediator\Queries\" />
     <Folder Include="Features\Mediator\Results\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MultiShop.Order.Domain\MultiShop.Order.Domain.csproj" />
   </ItemGroup>
 
 </Project>
