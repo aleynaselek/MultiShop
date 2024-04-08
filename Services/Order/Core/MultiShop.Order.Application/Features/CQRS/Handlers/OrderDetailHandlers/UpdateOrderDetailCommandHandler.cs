@@ -1,4 +1,4 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.OrderDetailCommands;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -7,25 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
+namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers
 {
-    public class UpdateAddressCommandHandler
+    public class UpdateOrderDetailCommandHandler
     {
-        private readonly IRepository<Address> _repository;
-        public UpdateAddressCommandHandler(IRepository<Address> repository)
+        private readonly IRepository<OrderDetail> _repository;
+        public UpdateOrderDetailCommandHandler(IRepository<OrderDetail> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(UpdateAddressCommand command)
+        public async Task Handle(UpdateOrderDetailCommand command)
         {
-            var values = await _repository.GetByIdAsync(command.AddressId);
-            values.UserId = command.UserId;
-            values.City = command.City;
-            values.District = command.District;
-            values.Detail = command.Detail;
+            var values = await _repository.GetByIdAsync(command.OrderDetailId);
+            values.ProductId = command.ProductId;
+            values.ProductName = command.ProductName;
+            values.ProductPrice = command.ProductPrice;
+            values.ProductAmount = command.ProductAmount;
+            values.ProductTotalPrice = command.ProductTotalPrice;
+            values.OrderingId = command.OrderingId;
             await _repository.UpdateAsync(values);          
 
         }
     }
-}
+} 

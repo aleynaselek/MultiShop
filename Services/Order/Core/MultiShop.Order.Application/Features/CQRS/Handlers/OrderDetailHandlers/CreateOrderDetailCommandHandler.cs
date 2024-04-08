@@ -23,16 +23,12 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers
             {
                 ProductId = createOrderDetailCommand.ProductId,
                 ProductName = createOrderDetailCommand.ProductName,
-                District = createOrderDetailCommand.District,
-                Detail = createOrderDetailCommand.Detail
+                ProductPrice = createOrderDetailCommand.ProductPrice,
+                ProductAmount = createOrderDetailCommand.ProductAmount,
+                ProductTotalPrice = createOrderDetailCommand.ProductTotalPrice,
+                OrderingId = createOrderDetailCommand.OrderingId
             });
 
         }
     }
-}
-ProductId = values.ProductId,
-                ProductName = values.ProductName,
-                ProductPrice = values.ProductPrice,
-                ProductAmount = values.ProductAmount,
-                ProductTotalPrice = values.ProductTotalPrice,
-                OrderingId = values.OrderingId
+} 
