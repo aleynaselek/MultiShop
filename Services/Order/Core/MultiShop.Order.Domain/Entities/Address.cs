@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Domain.Entities
 {
-    public class Address
+    public class Ordering
     {
-        public int AddressId { get; set; }
+        public int OrderingId { get; set; }
         public string UserId { get; set; }
         public string City { get; set; }
         public string District { get; set; }

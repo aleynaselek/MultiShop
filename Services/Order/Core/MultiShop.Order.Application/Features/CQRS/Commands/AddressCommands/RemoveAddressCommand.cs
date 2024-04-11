@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands
+namespace MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands
 {
-    public class RemoveAddressCommand
+    public class RemoveOrderingCommand
     {
-        public RemoveAddressCommand(int id)
+        public RemoveOrderingCommand(int id)
         {
             Id = id;
         }

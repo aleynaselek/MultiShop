@@ -15,7 +15,7 @@ namespace MultiShop.Order.Persistance.Context
             optionsBuilder.UseSqlServer("Server=.; initial Catalog=MultiShopOrderDb; integrated Security=true;");
         }
 
-        public DbSet<Address> Addresses { get; set; }
+        public DbSet<Ordering> Orderinges { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
         public DbSet<Ordering> Orderings { get; set; }
     }

@@ -1,4 +1,4 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
+namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
 {
-    public class UpdateAddressCommandHandler
+    public class UpdateOrderingCommandHandler
     {
-        private readonly IRepository<Address> _repository;
-        public UpdateAddressCommandHandler(IRepository<Address> repository)
+        private readonly IRepository<Ordering> _repository;
+        public UpdateOrderingCommandHandler(IRepository<Ordering> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(UpdateAddressCommand command)
+        public async Task Handle(UpdateOrderingCommand command)
         {
-            var values = await _repository.GetByIdAsync(command.AddressId);
+            var values = await _repository.GetByIdAsync(command.OrderingId);
             values.UserId = command.UserId;
             values.City = command.City;
             values.District = command.District;

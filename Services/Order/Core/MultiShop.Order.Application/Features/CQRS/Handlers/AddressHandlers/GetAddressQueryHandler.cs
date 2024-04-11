@@ -1,6 +1,6 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
-using MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries;
-using MultiShop.Order.Application.Features.CQRS.Results.AddressResults;
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands;
+using MultiShop.Order.Application.Features.CQRS.Queries.OrderingQueries;
+using MultiShop.Order.Application.Features.CQRS.Results.OrderingResults;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -9,22 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
+namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
 {
-    public class GetAddressQueryHandler
+    public class GetOrderingQueryHandler
     {
-        private readonly IRepository<Address> _repository;
-        public GetAddressQueryHandler(IRepository<Address> repository)
+        private readonly IRepository<Ordering> _repository;
+        public GetOrderingQueryHandler(IRepository<Ordering> repository)
         {
             _repository = repository;
         }
 
-        public async Task<List<GetAddressQueryResult>> Handle()
+        public async Task<List<GetOrderingQueryResult>> Handle()
         {
             var values  = await _repository.GetAllAsync();
-            return values.Select(x=>new GetAddressQueryResult
+            return values.Select(x=>new GetOrderingQueryResult
             {
-                AddressId = x.AddressId,
+                OrderingId = x.OrderingId,
                 UserId = x.UserId,
                 City = x.City,
                 District = x.District,
