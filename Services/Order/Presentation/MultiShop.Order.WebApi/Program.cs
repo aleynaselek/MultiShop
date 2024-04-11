@@ -1,7 +1,12 @@
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers;
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
+using MultiShop.Order.Application.Interfaces;
+using MultiShop.Order.Persistance.Repository;
+using MultiShop.Order.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+builder.Services.AddApplicationService(builder.Configuration);
 
 // Add services to the container.
 builder.Services.AddScoped<GetOrderingByIdQueryHandler>();
