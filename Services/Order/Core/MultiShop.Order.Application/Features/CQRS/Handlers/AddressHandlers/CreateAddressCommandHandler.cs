@@ -22,9 +22,8 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
             await _repository.CreateAsync( new Ordering
             {
                 UserId = createOrderingCommand.UserId,
-                City = createOrderingCommand.City,
-                District = createOrderingCommand.District,
-                Detail = createOrderingCommand.Detail
+                TotalPrice = createOrderingCommand.TotalPrice,
+                OrderDate = createOrderingCommand.OrderDate 
             });
 
         }

@@ -1,7 +1,5 @@
 ﻿using MediatR;
-using MultiShop.Order.Application.Features.Mediator.Commands.OrderingCommands;
-using MultiShop.Order.Application.Features.Mediator.Queries.OrderingQueries;
-using MultiShop.Order.Application.Features.Mediator.Results.OrderingResults;
+using MultiShop.Order.Application.Features.Mediator.Commands.OrderingCommands;  
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;

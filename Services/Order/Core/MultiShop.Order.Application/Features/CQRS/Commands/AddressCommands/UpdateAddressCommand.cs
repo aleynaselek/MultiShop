@@ -11,8 +11,7 @@ namespace MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands
 
         public int OrderingId { get; set; }
         public string UserId { get; set; }
-        public string City { get; set; }
-        public string District { get; set; }
-        public string Detail { get; set; }
+        public decimal TotalPrice { get; set; }
+        public DateTime OrderDate { get; set; }
     }
 }

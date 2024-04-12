@@ -21,9 +21,8 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
         {
             var values = await _repository.GetByIdAsync(command.OrderingId);
             values.UserId = command.UserId;
-            values.City = command.City;
-            values.District = command.District;
-            values.Detail = command.Detail;
+            values.TotalPrice = command.TotalPrice;
+            values.OrderDate = command.OrderDate; 
             await _repository.UpdateAsync(values);          
 
         }

@@ -26,9 +26,8 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
             {
                 OrderingId = values.OrderingId,
                 UserId = values.UserId,
-                City = values .City,
-                District =  values.District,
-                Detail = values.Detail
+                TotalPrice = values.TotalPrice,
+                OrderDate =  values.OrderDate 
             };
 
         }
