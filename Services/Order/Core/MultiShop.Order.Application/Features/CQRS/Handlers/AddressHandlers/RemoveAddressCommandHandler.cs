@@ -1,6 +1,4 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands;
-using MultiShop.Order.Application.Features.CQRS.Queries.OrderingQueries;
-using MultiShop.Order.Application.Features.CQRS.Results.OrderingResults;
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands; 
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -11,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
-    public class RemoveOrderingCommandHandler
+    public class RemoveAddressCommandHandler
     {
-        private readonly IRepository<Ordering> _repository;
-        public RemoveOrderingCommandHandler(IRepository<Ordering> repository)
+        private readonly IRepository<Address> _repository;
+        public RemoveAddressCommandHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(RemoveOrderingCommand command)
+        public async Task Handle(RemoveAddressCommand command)
         {
             var value  = await _repository.GetByIdAsync(command.Id);
             await _repository.DeleteAsync(value);
