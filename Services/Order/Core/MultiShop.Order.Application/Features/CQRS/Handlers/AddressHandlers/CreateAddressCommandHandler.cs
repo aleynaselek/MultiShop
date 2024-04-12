@@ -9,15 +9,15 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
-    public class CreateOrderingCommandHandler
+    public class CreateAddressCommandHandler
     {
-        private readonly IRepository<Ordering> _repository;
-        public CreateOrderingCommandHandler(IRepository<Ordering> repository)
+        private readonly IRepository<Address> _repository;
+        public CreateAddressCommandHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
 
-        public async Task Handle(CreateOrderingCommand createOrderingCommand)
+        public async Task Handle(CreateAddressCommand createAddressCommand)
         {
             await _repository.CreateAsync( new Ordering
             {

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands
+namespace MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands
 {
-    public class UpdateOrderingCommand    
-    {
-
-        public int OrderingId { get; set; }
+    public class UpdateAddressCommand
+    { 
+        public int AddressId { get; set; }
         public string UserId { get; set; }
-        public decimal TotalPrice { get; set; }
-        public DateTime OrderDate { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
+        public string Detail { get; set; }
     }
 }
