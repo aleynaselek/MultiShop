@@ -1,4 +1,4 @@
-using MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers;
+using MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
 using MultiShop.Order.Application.Features.CQRS.Handlers.OrderDetailHandlers;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Persistance.Repository;
@@ -11,7 +11,7 @@ builder.Services.AddApplicationService(builder.Configuration);
 // Add services to the container.
 builder.Services.AddScoped<GetOrderingByIdQueryHandler>();
 builder.Services.AddScoped<GetOrderingByIdQueryHandler>();
-builder.Services.AddScoped<CreateOrderingCommandHandler>();
+builder.Services.AddScoped<CreateAddressCommandHandler>();
 builder.Services.AddScoped<UpdateOrderingCommandHandler>();
 builder.Services.AddScoped<RemoveOrderingCommandHandler>();
 

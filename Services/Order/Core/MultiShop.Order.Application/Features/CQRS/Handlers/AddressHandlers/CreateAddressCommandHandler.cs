@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers
+namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
     public class CreateOrderingCommandHandler
     {
