@@ -12,7 +12,23 @@ namespace MultiShop.Order.Persistance.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Ordering",
+                name: "Addresses",
+                columns: table => new
+                {
+                    AddressId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    District = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Detail = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Addresses", x => x.AddressId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Orderings",
                 columns: table => new
                 {
                     OrderingId = table.Column<int>(type: "int", nullable: false)
@@ -23,7 +39,7 @@ namespace MultiShop.Order.Persistance.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Ordering", x => x.OrderingId);
+                    table.PrimaryKey("PK_Orderings", x => x.OrderingId);
                 });
 
             migrationBuilder.CreateTable(
@@ -43,9 +59,9 @@ namespace MultiShop.Order.Persistance.Migrations
                 {
                     table.PrimaryKey("PK_OrderDetails", x => x.OrderDetailId);
                     table.ForeignKey(
-                        name: "FK_OrderDetails_Ordering_OrderingId",
+                        name: "FK_OrderDetails_Orderings_OrderingId",
                         column: x => x.OrderingId,
-                        principalTable: "Ordering",
+                        principalTable: "Orderings",
                         principalColumn: "OrderingId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -60,10 +76,13 @@ namespace MultiShop.Order.Persistance.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Addresses");
+
+            migrationBuilder.DropTable(
                 name: "OrderDetails");
 
             migrationBuilder.DropTable(
-                name: "Ordering");
+                name: "Orderings");
         }
     }
 }

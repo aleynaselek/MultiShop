@@ -1,62 +1,62 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MultiShop.Order.Application.Features.CQRS.Commands.OrderingCommands;
-using MultiShop.Order.Application.Features.CQRS.Handlers.OrderingHandlers;
-using MultiShop.Order.Application.Features.CQRS.Queries.OrderingQueries;
+using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
+using MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers;
+using MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries;
 
 namespace MultiShop.Order.WebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OrderingesController : ControllerBase
+    public class AddressesController : ControllerBase
     {
-        private readonly GetOrderingQueryHandler _getOrderingQueryHandler;
-        private readonly GetOrderingByIdQueryHandler _getOrderingByIdQueryHandler;
-        private readonly CreateOrderingCommandHandler _createOrderingCommandHandler;
-        private readonly RemoveOrderingCommandHandler _removeOrderingCommandHandler;
-        private readonly UpdateOrderingCommandHandler _updateOrderingCommandHandler;
+        private readonly GetAddressQueryHandler _getAddressQueryHandler;
+        private readonly GetAddressByIdQueryHandler _getAddressByIdQueryHandler;
+        private readonly CreateAddressCommandHandler _createAddressCommandHandler;
+        private readonly RemoveAddressCommandHandler _removeAddressCommandHandler;
+        private readonly UpdateAddressCommandHandler _updateAddressCommandHandler;
 
 
-        public OrderingesController(GetOrderingQueryHandler getOrderingQueryHandler, GetOrderingByIdQueryHandler getOrderingByIdQueryHandler, CreateOrderingCommandHandler createOrderingCommandHandler, RemoveOrderingCommandHandler removeOrderingCommandHandler, UpdateOrderingCommandHandler updateOrderingCommandHandler)
+        public AddressesController(GetAddressQueryHandler getAddressQueryHandler, GetAddressByIdQueryHandler getAddressByIdQueryHandler, CreateAddressCommandHandler createAddressCommandHandler, RemoveAddressCommandHandler removeAddressCommandHandler, UpdateAddressCommandHandler updateAddressCommandHandler)
         {
-            _getOrderingByIdQueryHandler = getOrderingByIdQueryHandler;
-            _getOrderingQueryHandler = getOrderingQueryHandler;
-            _createOrderingCommandHandler = createOrderingCommandHandler;
-            _removeOrderingCommandHandler = removeOrderingCommandHandler;
-            _updateOrderingCommandHandler = updateOrderingCommandHandler;
+            _getAddressByIdQueryHandler = getAddressByIdQueryHandler;
+            _getAddressQueryHandler = getAddressQueryHandler;
+            _createAddressCommandHandler = createAddressCommandHandler;
+            _removeAddressCommandHandler = removeAddressCommandHandler;
+            _updateAddressCommandHandler = updateAddressCommandHandler;
         }
 
         [HttpGet]
-        public async Task<IActionResult> OrderingList()
+        public async Task<IActionResult> AddressList()
         {
-            var values = await _getOrderingQueryHandler.Handle();
+            var values = await _getAddressQueryHandler.Handle();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> OrderingListById(int id)
+        public async Task<IActionResult> AddressListById(int id)
         {
-            var value = await _getOrderingByIdQueryHandler.Handle(new GetOrderingByIdQuery(id));
+            var value = await _getAddressByIdQueryHandler.Handle(new GetAddressByIdQuery(id));
             return Ok(value);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateOrdering(CreateOrderingCommand command)
+        public async Task<IActionResult> CreateAddress(CreateAddressCommand command)
         {
-            await _createOrderingCommandHandler.Handle(command);
+            await _createAddressCommandHandler.Handle(command);
             return Ok("Adres bilgisi başarıyla eklendi.");
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateOrdering(UpdateOrderingCommand command)
+        public async Task<IActionResult> UpdateAddress(UpdateAddressCommand command)
         {
-            await _updateOrderingCommandHandler.Handle(command);
+            await _updateAddressCommandHandler.Handle(command);
             return Ok("Adres bilgisi başarıyla güncellendi.");
         }
 
         [HttpDelete]    
-        public async Task<IActionResult> RemoveOrdering(int id)
+        public async Task<IActionResult> RemoveAddress(int id)
         {
-            await _removeOrderingCommandHandler.Handle(new RemoveOrderingCommand(id));
+            await _removeAddressCommandHandler.Handle(new RemoveAddressCommand(id));
             return Ok("Adres bilgisi başarıyla silindi.");
         }
     }

@@ -9,11 +9,11 @@ builder.Services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
 builder.Services.AddApplicationService(builder.Configuration);
 
 // Add services to the container.
-builder.Services.AddScoped<GetOrderingByIdQueryHandler>();
-builder.Services.AddScoped<GetOrderingByIdQueryHandler>();
+builder.Services.AddScoped<GetAddressByIdQueryHandler>();
+builder.Services.AddScoped<GetAddressByIdQueryHandler>();
 builder.Services.AddScoped<CreateAddressCommandHandler>();
-builder.Services.AddScoped<UpdateOrderingCommandHandler>();
-builder.Services.AddScoped<RemoveOrderingCommandHandler>();
+builder.Services.AddScoped<UpdateAddressCommandHandler>();
+builder.Services.AddScoped<RemoveAddressCommandHandler>();
 
 builder.Services.AddScoped<GetOrderDetailQueryHandler>();
 builder.Services.AddScoped<GetOrderDetailByIdQueryHandler>();

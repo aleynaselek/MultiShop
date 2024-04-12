@@ -22,6 +22,35 @@ namespace MultiShop.Order.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("MultiShop.Order.Domain.Entities.Address", b =>
+                {
+                    b.Property<int>("AddressId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"));
+
+                    b.Property<string>("City")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Detail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("District")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AddressId");
+
+                    b.ToTable("Addresses");
+                });
+
             modelBuilder.Entity("MultiShop.Order.Domain.Entities.OrderDetail", b =>
                 {
                     b.Property<int>("OrderDetailId")
@@ -77,7 +106,7 @@ namespace MultiShop.Order.Persistance.Migrations
 
                     b.HasKey("OrderingId");
 
-                    b.ToTable("Ordering");
+                    b.ToTable("Orderings");
                 });
 
             modelBuilder.Entity("MultiShop.Order.Domain.Entities.OrderDetail", b =>
