@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Queries.OrderingQueries
+namespace MultiShop.Order.Application.Features.CQRS.Queries.AddressQueries
 {
-    public class GetOrderingByIdQuery
+    public class GetAddressByIdQuery
     {
-        public GetOrderingByIdQuery(int id)
+        public GetAddressByIdQuery(int id)
         {
             Id = id;
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Application.Features.CQRS.Results.OrderingResults
+namespace MultiShop.Order.Application.Features.CQRS.Results.AddressResults
 {
     public class GetOrderingByIdQueryResult
     {

@@ -11,23 +11,24 @@ using System.Threading.Tasks;
 
 namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
 {
-    public class GetOrderingByIdQueryHandler
+    public class GetAddressByIdQueryHandler
     {
-        private readonly IRepository<Ordering> _repository;
-        public GetOrderingByIdQueryHandler(IRepository<Ordering> repository)
+        private readonly IRepository<Address> _repository;
+        public GetAddressByIdQueryHandler(IRepository<Address> repository)
         {
             _repository = repository;
         }
 
-        public async Task<GetOrderingByIdQueryResult> Handle(GetOrderingByIdQuery query)
+        public async Task<GetAddressByIdQueryResult> Handle(GetAddressByIdQuery query)
         {
             var values  = await _repository.GetByIdAsync(query.Id);
             return new GetOrderingByIdQueryResult
             {
-                OrderingId = values.OrderingId,
+                AddressId = values.AddressId,
                 UserId = values.UserId,
-                TotalPrice = values.TotalPrice,
-                OrderDate =  values.OrderDate 
+                City = values.City,
+                District =  values.District,
+                Detail =  values.Detail
             };
 
         }
