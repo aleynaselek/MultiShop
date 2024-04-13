@@ -16,7 +16,9 @@ namespace MultiShop.IdentityServer
             {
                 new ApiResource("ResourceCatalog") { Scopes = { "CatalogFullPermission", "CatalogReadPermission" } } ,
                 new ApiResource("ResourceDiscount") { Scopes = { "DiscountFullPermission" } } ,
-                new ApiResource("ResourceOrder") { Scopes = { "OrderFullPermission" } } 
+                new ApiResource("ResourceOrder") { Scopes = { "OrderFullPermission" } },
+                new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
+
             };
 
         public static IEnumerable<IdentityResource> IdentityResources =>
@@ -33,6 +35,7 @@ namespace MultiShop.IdentityServer
             new ApiScope("CatalogReadPermission", "Read permission for catalog API"),
             new ApiScope("DiscountFullPermission", "Full permission for discount API"),
             new ApiScope("OrderFullPermission", "Full permission for order API"),
+            new ApiScope(IdentityServerConstants.LocalApi.ScopeName) 
         };
 
         public static IEnumerable<Client> Clients => new Client[]
