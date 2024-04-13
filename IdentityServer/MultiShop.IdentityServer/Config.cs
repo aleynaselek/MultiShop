@@ -33,5 +33,17 @@ namespace MultiShop.IdentityServer
             new ApiScope("DiscountFullPermission", "Full permission for discount API"),
             new ApiScope("OrderFullPermission", "Full permission for order API"),
         };
+
+        public static IEnumerable<Client> Clients => new Client[]
+        {
+            new Client
+            {
+                ClientId = "MultiShopVisitorId",
+                ClientName = "MultiShopVisitorUser",
+                AllowedGrantTypes = GrantTypes.ClientCredentials,
+                ClientSecrets ={ new Secret("multishopsecret".Sha256()) },
+                AllowedScopes = { "CatalogReadPermission" }
+            }
+        };
     }
 }
