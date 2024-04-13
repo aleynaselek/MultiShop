@@ -10,6 +10,23 @@ namespace MultiShop.IdentityServer
     public static class Config
     {
         
+        public static IEnumerable<ApiResource> ApiResources =>
+            new ApiResource[]
+            {
+                new ApiResource("ResourceCatalog") { Scopes = { "CatalogFullPermission" } } 
+            };
 
+        public static IEnumerable<IdentityResource> IdentityResources =>
+            new IdentityResource[]
+            {
+                new IdentityResources.OpenId(),
+                new IdentityResources.Email(),
+                new IdentityResources.Profile()
+            };
+
+        public static IEnumerable<ApiScope> ApiScopes => new ApiScope[]
+        {
+            new ApiScope("CatalogFullPermission", "Full permission for catalog API")
+        };
     }
 }
