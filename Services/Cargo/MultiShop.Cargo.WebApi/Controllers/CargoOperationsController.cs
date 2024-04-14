@@ -33,14 +33,14 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Description = createCargoOperationDto.Description 
             };
             _cargoOperationService.TInsert(cargoOperation);
-            return Ok("Kargo Detayı Ekleme İşlemi Başarıyla Yapıldı");
+            return Ok("Kargo İşlemi Başarıyla Yapıldı");
         }
 
         [HttpDelete]
         public IActionResult RemoveCargoOperation(int id)
         {
             _cargoOperationService.TDelete(id);
-            return Ok("Kargo Detayı Silme İşlemi Başarıyla Yapıldı");
+            return Ok("Kargo İşlemi Başarıyla Silindi");
         }
 
         [HttpGet("{id}")]
@@ -60,7 +60,7 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Description = updateCargoOperationDto.Description  
             };
             _cargoOperationService.TUpdate(cargoOperation);
-            return Ok("Kargo Detayı Güncelleme İşlemi Başarıyla Yapıldı");
+            return Ok("Kargo İşlemi Başarıyla Güncellendi");
         }
     }
 }
