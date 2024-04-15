@@ -1,6 +1,6 @@
 ﻿namespace MultiShop.Basket.LoginServices
 {
-    public interface ILoginServise
+    public interface ILoginService
     {
         public string GetUserId { get; }
     }

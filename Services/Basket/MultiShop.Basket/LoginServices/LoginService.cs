@@ -1,10 +1,10 @@
 ﻿namespace MultiShop.Basket.LoginServices
 {
-    public class LoginServise: ILoginServise
+    public class LoginService: ILoginService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public LoginServise(IHttpContextAccessor httpContextAccessor)
+        public LoginService(IHttpContextAccessor httpContextAccessor)
         {
             _httpContextAccessor = httpContextAccessor;
         }
