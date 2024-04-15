@@ -8,7 +8,7 @@ using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
-JwtSecurityTokenHandler.DefaultOutboundAlgorithmMap.Remove("sub");
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -16,7 +16,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         options.Authority = builder.Configuration["IdentityServerUrl"];
         options.Audience = "ResourceBasket";
         options.RequireHttpsMetadata = false;
-
+        options.MapInboundClaims = false;
     });
 // Add services to the container.
 
