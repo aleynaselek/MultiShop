@@ -2,7 +2,7 @@
 
 namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
 {
-	public class aaa : ViewComponent
+	public class _ScriptUILayoutComponentPartial : ViewComponent
 	{
 		public IViewComponentResult Invoke()
 		{
