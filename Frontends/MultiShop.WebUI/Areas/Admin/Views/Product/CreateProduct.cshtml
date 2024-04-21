@@ -20,10 +20,10 @@
                         <input type="text" asp-for="ProductPrice" class="form-control" /> 
                         <br />      
                         <label>Ürün Görseli</label>
-                        <input type="text" asp-for="ProductImageUrl" class="form-control" />
+                        <input type="text" asp-for="ProductImageUrl" class="form-control" /> 
                         <br />   
                         <label>Ürün Kategorisi</label>
-                        <input type="text" asp-for="ProductImageUrl" class="form-control" />  
+                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.CategoryValues,  new { @class = "form-control" })
                         <br />
                         <label>Ürün Açıklaması</label>
                         <textarea asp-for="ProductDescription" class="form-control" rows="5"></textarea> 
