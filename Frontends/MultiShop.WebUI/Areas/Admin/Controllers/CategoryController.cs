@@ -78,14 +78,19 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         }
 
         [Route("UpdateCategory/{id}")]
+        [HttpGet]
         public async Task<IActionResult> UpdateCategory(string id)
         {
+            ViewBag.v1 = "Ana Sayfa";
+            ViewBag.v2 = "Kategoriler";
+            ViewBag.v3 = "Kategori Güüncelleme Sayfası";
+            ViewBag.v0 = "Kategori İşlemleri";
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7072/api/Categories?id="+id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<ResultCategoryDto>(jsonData);
+                var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
                 return View(values);
             }
             return View();
