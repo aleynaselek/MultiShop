@@ -36,14 +36,14 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> CreateSpecialOffer(CreateSpecialOfferDto createSpecialOfferDto)
         {
             await _SpecialOfferService.CreateSpecialOfferAsync(createSpecialOfferDto);
-            return Ok("Öne çıkan görsel başarıyla eklendi");
+            return Ok("Özel teklif başarıyla eklendi");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteSpecialOffer(string id)
         {
             await _SpecialOfferService.DeleteSpecialOfferAsync(id);
-            return Ok("Öne çıkan görsel başarıyla silindi");
+            return Ok("Özel teklif başarıyla silindi");
         }
 
 
@@ -51,7 +51,7 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> UpdateSpecialOffer(UpdateSpecialOfferDto updateSpecialOfferDto)
         {
             await _SpecialOfferService.UpdateSpecialOfferAsync(updateSpecialOfferDto);
-            return Ok("Öne çıkan görsel başarıyla güncellendi");
+            return Ok("Özel teklif başarıyla güncellendi");
         }
     }
 }
