@@ -16,8 +16,7 @@ namespace MultiShop.Catalog.Services.FeatureSliderServices
         {
             var client = new MongoClient(_databaseSettings.ConnectionString);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
-            _featureSliderCollection = database.GetCollection<FeatureSlider>(_databaseSettings.FeatureSliderCollectionName);
-            _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);
+            _featureSliderCollection = database.GetCollection<FeatureSlider>(_databaseSettings.FeatureSliderCollectionName); 
             _mapper = mapper;
         }
         public async Task CreateFeatureSliderAsync(CreateFeatureSliderDto createFeatureSliderDto)
