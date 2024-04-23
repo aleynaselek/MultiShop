@@ -40,10 +40,10 @@ namespace MultiShop.Catalog.Services.FeatureSliderServices
             throw new NotImplementedException();
         }
 
-        public async Task<List<ResultFeatureSliderDto>> GetAllFeatureSliderAsync()
+        public async Task<List<GetByIdFeatureSliderDto>> GetAllFeatureSliderAsync()
         {
             var values = await _featureSliderCollection.Find(x => true).ToListAsync();
-            return _mapper.Map<List<ResultFeatureSliderDto>>(values);
+            return _mapper.Map<List<GetByIdFeatureSliderDto>>(values);
         }
 
         public async Task<GetByIdFeatureSliderDto> GetByIdFeatureSliderAsync(string id)
