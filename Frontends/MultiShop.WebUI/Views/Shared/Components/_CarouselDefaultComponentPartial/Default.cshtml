@@ -10,14 +10,14 @@
                 <ol class="carousel-indicators">
                     @foreach (var item in Model)
                     {
-                        <li data-target="#header-carousel" data-slide-to="@countSlider" class="@(countSlider ==0 ?"active":"")"></li>
+                        <li data-target="#header-carousel" data-slide-to="@countSlider" class="@(countSlider == 0 ? "active" : "")"></li>
                         countSlider++;
                     }
                 </ol>                    
                 <div class="carousel-inner">
                     @foreach (var item in Model)
                     {
-                        <div class="carousel-item position-relative @(count ==0 ?"active":"")" style="height: 430px;">
+                        <div class="carousel-item position-relative @(count == 0 ? "active" : "")" style="height: 430px;">
                             <img class="position-absolute w-100 h-100" src="@item.ImageUrl" style="object-fit: cover;">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
