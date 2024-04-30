@@ -16,7 +16,7 @@ namespace MultiShop.Catalog.Services.FeatureServices
             var client= new MongoClient(_databaseSettings.ConnectionString);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
             _featureCollection = database.GetCollection<Feature>(_databaseSettings.FeatureCollectionName);
-            _mapper = mapper;
+            _mapper = mapper; 
         }
         public async Task CreateFeatureAsync(CreateFeatureDto createFeatureDto)
         {
