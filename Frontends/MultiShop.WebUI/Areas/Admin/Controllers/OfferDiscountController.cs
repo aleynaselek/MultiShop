@@ -22,9 +22,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             ViewBag.v1="Ana Sayfa";
-            ViewBag.v2="Özel Teklifler";
-            ViewBag.v3= "Özel Teklif ve Günün İndirim Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
+            ViewBag.v2="İndirim Teklifleri";
+            ViewBag.v3= "İndirim Teklif Listesi";
+            ViewBag.v0 = "İndirim Teklif İşlemleri";
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7072/api/OfferDiscounts");
@@ -43,9 +43,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public IActionResult CreateOfferDiscount()
         {
             ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Özel Teklifler";
-            ViewBag.v3 = "Özel Teklif ve Günün İndirim Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
+            ViewBag.v2 = "İndirim Teklifleri";
+            ViewBag.v3 = "İndirim Teklif Listesi";
+            ViewBag.v0 = "İndirim Teklif İşlemleri";
             return View();
         }
 
@@ -82,9 +82,9 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateOfferDiscount(string id)
         {
             ViewBag.v1 = "Ana Sayfa";
-            ViewBag.v2 = "Özel Teklifler";
-            ViewBag.v3 = "Özel Teklif ve Günün İndirim Listesi";
-            ViewBag.v0 = "Özel Teklifler İşlemleri";
+            ViewBag.v2 = "İndirim Teklifleri";
+            ViewBag.v3 = "İndirim Teklif Listesi";
+            ViewBag.v0 = "İndirim Teklif İşlemleri";
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7072/api/OfferDiscounts/" + id);
             if (responseMessage.IsSuccessStatusCode)
