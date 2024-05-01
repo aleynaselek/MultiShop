@@ -52,7 +52,7 @@ namespace MultiShop.Catalog.Mapping
             CreateMap<Feature, UpdateFeatureDto>().ReverseMap();
             CreateMap<Feature, GetByIdFeatureDto>().ReverseMap();
 
-            CreateMap<OfferDiscount, CreateOfferDiscountDto>().ReverseMap();
+            CreateMap<OfferDiscount, ResultOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, CreateOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, UpdateOfferDiscountDto>().ReverseMap();
             CreateMap<OfferDiscount, GetByIdOfferDiscountDto>().ReverseMap();

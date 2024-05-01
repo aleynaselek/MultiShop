@@ -8,36 +8,36 @@ namespace MultiShop.Catalog.Services.OfferDiscountServices
 {
     public class OfferDiscountService : IOfferDiscountService
     {
-        private readonly IMongoCollection<OfferDiscount> _OfferDiscountCollection;
+        private readonly IMongoCollection<OfferDiscount> _offerDiscountCollection;
         private readonly IMapper _mapper;
 
         public OfferDiscountService(IMapper mapper, IDatabaseSettings _databaseSettings)
         {
             var client= new MongoClient(_databaseSettings.ConnectionString);
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
-            _OfferDiscountCollection = database.GetCollection<OfferDiscount>(_databaseSettings.OfferDiscountCollectionName);
+            _offerDiscountCollection = database.GetCollection<OfferDiscount>(_databaseSettings.OfferDiscountCollectionName);
             _mapper = mapper;
         }
         public async Task CreateOfferDiscountAsync(CreateOfferDiscountDto createOfferDiscountDto)
         {
             var value = _mapper.Map<OfferDiscount>(createOfferDiscountDto);
-            await _OfferDiscountCollection.InsertOneAsync(value);
+            await _offerDiscountCollection.InsertOneAsync(value);
         }
 
         public async Task DeleteOfferDiscountAsync(string id)
         {
-            await _OfferDiscountCollection.DeleteOneAsync(x => x.OfferDiscountId == id);
+            await _offerDiscountCollection.DeleteOneAsync(x => x.OfferDiscountId == id);
         }
 
         public async Task<List<ResultOfferDiscountDto>> GetAllOfferDiscountAsync()
         {
-            var values = await _OfferDiscountCollection.Find(x => true).ToListAsync();
+            var values = await _offerDiscountCollection.Find(x => true).ToListAsync();
             return _mapper.Map<List<ResultOfferDiscountDto>>(values);
         }
 
         public async Task<GetByIdOfferDiscountDto> GetByIdOfferDiscountAsync(string id)
         {
-            var values = await _OfferDiscountCollection.Find(x=>x.OfferDiscountId == id).FirstOrDefaultAsync();
+            var values = await _offerDiscountCollection.Find(x=>x.OfferDiscountId == id).FirstOrDefaultAsync();
             return _mapper.Map<GetByIdOfferDiscountDto>(values);
 
         }
@@ -45,7 +45,7 @@ namespace MultiShop.Catalog.Services.OfferDiscountServices
         public async Task UpdateOfferDiscountAsync(UpdateOfferDiscountDto updateOfferDiscountDto)
         {
             var values = _mapper.Map<OfferDiscount>(updateOfferDiscountDto);
-            await _OfferDiscountCollection.FindOneAndReplaceAsync(x => x.OfferDiscountId == updateOfferDiscountDto.OfferDiscountId, values);
+            await _offerDiscountCollection.FindOneAndReplaceAsync(x => x.OfferDiscountId == updateOfferDiscountDto.OfferDiscountId, values);
 
         }
     }
