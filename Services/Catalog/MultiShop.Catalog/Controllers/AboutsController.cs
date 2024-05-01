@@ -11,38 +11,38 @@ namespace MultiShop.Catalog.Controllers
     [ApiController]
     public class AboutsController : ControllerBase
     {
-        private readonly IAboutService _AboutService;
+        private readonly IAboutService _aboutService;
 
-        public AboutsController(IAboutService AboutService)
+        public AboutsController(IAboutService aboutService)
         {
-            _AboutService = AboutService;
+            _aboutService = aboutService;
         }
 
         [HttpGet]
         public async Task<IActionResult> AboutList() 
         {
-            var values = await _AboutService.GetAllAboutAsync();
+            var values = await _aboutService.GetAllAboutAsync();
             return Ok(values);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetAboutById(string id)
         {
-            var values = await _AboutService.GetByIdAboutAsync(id);
+            var values = await _aboutService.GetByIdAboutAsync(id);
             return Ok(values);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
         {
-            await _AboutService.CreateAboutAsync(createAboutDto);
+            await _aboutService.CreateAboutAsync(createAboutDto);
             return Ok("Marka başarıyla eklendi");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAbout(string id)
         {
-            await _AboutService.DeleteAboutAsync(id);
+            await _aboutService.DeleteAboutAsync(id);
             return Ok("Marka başarıyla silindi");
         }
 
@@ -50,7 +50,7 @@ namespace MultiShop.Catalog.Controllers
         [HttpPut]
         public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
-            await _AboutService.UpdateAboutAsync(updateAboutDto);
+            await _aboutService.UpdateAboutAsync(updateAboutDto);
             return Ok("Marka başarıyla güncellendi");
         }
     }
