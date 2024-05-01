@@ -70,7 +70,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "Yeni Ürün Girişi";
             ViewBag.v0 = "Ürün İşlemleri";
             var client = _httpClientFactory.CreateClient();  
-            var responseMessage = await client.GetAsync("https://localhost:7072/api/Products");
+            var responseMessage = await client.GetAsync("https://localhost:7072/api/Categories");
             var jsonData = await responseMessage.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
             List<SelectListItem> categoryValues = (from x in values
@@ -120,7 +120,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v3 = "Ürün Güncelleme Sayfası";
             ViewBag.v0 = "Ürün İşlemleri";
             var client1 = _httpClientFactory.CreateClient();
-            var responseMessage1 = await client1.GetAsync("https://localhost:7072/api/Products");
+            var responseMessage1 = await client1.GetAsync("https://localhost:7072/api/Categories");
             var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
             var values1 = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData1);
             List<SelectListItem> categoryValues1 = (from x in values1
