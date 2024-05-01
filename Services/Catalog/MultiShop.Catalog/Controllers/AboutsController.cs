@@ -36,14 +36,14 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
         {
             await _aboutService.CreateAboutAsync(createAboutDto);
-            return Ok("Marka başarıyla eklendi");
+            return Ok("Hakkımda başarıyla eklendi");
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteAbout(string id)
         {
             await _aboutService.DeleteAboutAsync(id);
-            return Ok("Marka başarıyla silindi");
+            return Ok("Hakkımda başarıyla silindi");
         }
 
 
@@ -51,7 +51,7 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             await _aboutService.UpdateAboutAsync(updateAboutDto);
-            return Ok("Marka başarıyla güncellendi");
+            return Ok("Hakkımda başarıyla güncellendi");
         }
     }
 }
