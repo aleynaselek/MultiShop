@@ -15,6 +15,7 @@ namespace MultiShop.WebUI.ViewComponents.ProductListViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync( string id)
         {
+            id= "6624b7f7c05a2234a037f9b2";
 
             var client = _httpClientFactory.CreateClient();
             var responseMessage = await client.GetAsync("https://localhost:7072/api/Products/ProductListWithCategoryByCategoryId?id=" + id);
