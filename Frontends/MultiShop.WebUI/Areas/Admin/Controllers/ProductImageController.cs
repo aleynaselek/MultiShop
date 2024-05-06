@@ -24,7 +24,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [Route("UpdateProductImage/{id}")]
         [HttpGet]
-        public async Task<IActionResult> UpdateProductImage(string id)
+        public async Task<IActionResult> ProductImageDetail(string id)
         {
             ViewBag.v1 = "Ana Sayfa";
             ViewBag.v2 = "Ürünler";
@@ -56,7 +56,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
 
         [Route("UpdateProductImage/{id}")]
         [HttpPost]
-        public async Task<IActionResult> UpdateProductImage(UpdateProductImageDto updateProductImageDto)
+        public async Task<IActionResult> ProductImageDetail(UpdateProductImageDto updateProductImageDto)
         {
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateProductImageDto);
