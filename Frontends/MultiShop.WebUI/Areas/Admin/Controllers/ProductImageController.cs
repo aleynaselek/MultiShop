@@ -22,7 +22,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         }
          
 
-        [Route("UpdateProductImage/{id}")]
+        [Route("ProductImageDetail/{id}")]
         [HttpGet]
         public async Task<IActionResult> ProductImageDetail(string id)
         {
@@ -54,7 +54,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             return View();
         }
 
-        [Route("UpdateProductImage/{id}")]
+        [Route("ProductImageDetail/{id}")]
         [HttpPost]
         public async Task<IActionResult> ProductImageDetail(UpdateProductImageDto updateProductImageDto)
         {
