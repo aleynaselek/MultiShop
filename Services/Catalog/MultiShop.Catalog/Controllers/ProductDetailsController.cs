@@ -27,6 +27,7 @@ namespace MultiShop.Catalog.Controllers
         public async Task<IActionResult> GetProductDetailById(string id)
         {
             var values = await _ProductDetailService.GetByIdProductDetailAsync(id);
+
             return Ok(values);
         }
 
