@@ -28,22 +28,11 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         {
             ViewBag.v1 = "Ana Sayfa";
             ViewBag.v2 = "Ürünler";
-            ViewBag.v3 = "Ürün Güncelleme Sayfası";
-            ViewBag.v0 = "Ürün İşlemleri";
-            var client1 = _httpClientFactory.CreateClient();
-            var responseMessage1 = await client1.GetAsync("https://localhost:7072/api/Categories");
-            var jsonData1 = await responseMessage1.Content.ReadAsStringAsync();
-            var values1 = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData1);
-            List<SelectListItem> categoryValues1 = (from x in values1
-                                                   select new SelectListItem
-                                                   {
-                                                       Text = x.CategoryName,
-                                                       Value = x.CategoryID
-                                                   }).ToList();
-            ViewBag.CategoryValues = categoryValues1;
-
+            ViewBag.v3 = "Ürün Görsel Güncelleme Sayfası";
+            ViewBag.v0 = "Ürün Görsel İşlemleri";
+            
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7072/api/ProductImages/" + id);
+            var responseMessage = await client.GetAsync("https://localhost:7072/api/ProductImages/GetProductImageByProductId?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
@@ -61,10 +50,10 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var client = _httpClientFactory.CreateClient();
             var jsonData = JsonConvert.SerializeObject(updateProductImageDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("https://localhost:7072/api/ProductImages/", stringContent);
+            var responseMessage = await client.PutAsync("https://localhost:7072/api/ProductImages", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
-                return RedirectToAction("Index", "ProductImage", new { area = "Admin" });
+                return RedirectToAction("ProductListWithCategory", "Product", new { area = "Admin" });
             }
             return View();
         }
