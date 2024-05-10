@@ -4,3 +4,4 @@ Discount --> 7071
 Order    --> 7073
 Cargo    --> 7074
 Basket   --> 7075
+Comment   --> 7076

@@ -1,0 +1,41 @@
+﻿@model List<ResultCommentDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/AdminLayout/Index.cshtml"; 
+}
+
+<section class="content container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="chart-box"> 
+                <div class="bs-example" data-example-id="bordered-table">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr> 
+                                <th>Açıklama</th>
+                                <th>Adres</th>
+                                <th>Email</th>
+                                <th>Telefon</th>
+                                <th>Sil</th>
+                                <th>Güncelle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            { 
+                                <tr> 
+                                    <td>@item.NameSurname</td> 
+                                    <td>@item.Email</td> 
+                                    <td>@item.CommentDetail</td> 
+                                    <td>@item.ImageURl</td> 
+                                    <td><a href="/Admin/Comment/DeleteComment/@item.UserCommentId" class="btn btn-danger">Sil</a></td>
+                                    <td><a href="/Admin/Comment/UpdateComment/@item.UserCommentId" class="btn btn-success">Güncelle</a></td>
+                                </tr>
+                            }                           
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

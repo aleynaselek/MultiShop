@@ -12,7 +12,7 @@ using MultiShop.Comment.Context;
 namespace MultiShop.Comment.Migrations
 {
     [DbContext(typeof(CommentContext))]
-    [Migration("20240510172026_initial-migration")]
+    [Migration("20240510172634_initial-migration")]
     partial class initialmigration
     {
         /// <inheritdoc />
@@ -48,6 +48,10 @@ namespace MultiShop.Comment.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NameSurname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
