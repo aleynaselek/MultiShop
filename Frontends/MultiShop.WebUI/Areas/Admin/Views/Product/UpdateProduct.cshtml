@@ -8,25 +8,25 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Ürün Güncelleme Sayfası</h4>                       
+                <h4>Ürün Güncelleme Sayfası</h4>
                 <br />
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post">
                         <input type="hidden" asp-for="ProductID" />
                         <label>Ürün Adı</label>
-                        <input type="text" asp-for="ProductName" class="form-control" />  
+                        <input type="text" asp-for="ProductName" class="form-control" />
                         <br />
                         <label>Ürün Fiyatı</label>
-                        <input type="text" asp-for="ProductPrice" class="form-control" /> 
-                        <br />      
+                        <input type="text" asp-for="ProductPrice" class="form-control" />
+                        <br />
                         <label>Ürün Görseli</label>
-                        <input type="text" asp-for="ProductImageUrl" class="form-control" /> 
-                        <br />   
+                        <input type="text" asp-for="ProductImageUrl" class="form-control" />
+                        <br />
                         <label>Ürün Kategorisi</label>
-                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.CategoryValues,  new { @class = "form-control" })
+                        @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.CategoryValues, new { @class = "form-control" })
                         <br />
                         <label>Ürün Açıklaması</label>
-                        <textarea asp-for="ProductDescription" class="form-control" rows="5"></textarea> 
+                        <textarea asp-for="ProductDescription" class="form-control" rows="5"></textarea>
                         <br />
                         <button type="submit" class="btn btn-primary">Ürün Ekle</button>
                     </form>
