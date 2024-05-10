@@ -32,7 +32,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Ürün Açıklama ve bilgi İşlemleri";
             
             var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("https://localhost:7072/api/ProductDetails/" + id);
+            var responseMessage = await client.GetAsync("https://localhost:7072/api/ProductDetails/GetByProductIdProductDetailById?id=" + id);
             if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
