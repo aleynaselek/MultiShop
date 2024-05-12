@@ -9,12 +9,12 @@
                     <img src="@item.ImageURl" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                 <div class="media-body">
                         <h6>@item.NameSurname<small> - <i>@item.CreatedDate.ToShortDateString()</i></small></h6>
-                    <div class="text-primary mb-2">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                        <i class="far fa-star"></i>
+                    <div class="text-primary mb-2"> 
+                            <i class="@(item.Rating > 0 && item.Rating < 0.5 ? "fa-star-half-alt" :  (item.Rating > 0 ? "fas fa-star" : "far fa-star"))"></i>
+                            <i class="@(item.Rating > 1 && item.Rating < 1.5 ? "fa-star-half-alt" :  (item.Rating > 1 ? "fas fa-star" : "far fa-star"))"></i>
+                            <i class="@(item.Rating > 2 && item.Rating < 2.5 ? "fa-star-half-alt" :  (item.Rating > 2 ? "fas fa-star" : "far fa-star"))"></i>
+                            <i class="@(item.Rating > 3 && item.Rating < 3.5 ? "fa-star-half-alt" :  (item.Rating > 3 ? "fas fa-star" : "far fa-star"))"></i>
+                            <i class="@(item.Rating > 4 && item.Rating < 4.5 ? "fa-star-half-alt" :  (item.Rating > 4 ? "fas fa-star" : "far fa-star"))"></i>
                     </div>
                         <p>@item.CommentDetail</p>
                 </div>
