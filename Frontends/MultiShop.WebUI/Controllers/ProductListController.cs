@@ -26,24 +26,15 @@ namespace MultiShop.WebUI.Controllers
         } 
         
          
-        public async Task<PartialViewResult> AddComment(string id)
-        {
-
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:7076/api/Comments/CommentListByProductId?id=" + id);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var value = JsonConvert.DeserializeObject<List<ResultCommentDto>>(jsonData);
-                return PartialView(value);
-            }
+        public  PartialViewResult AddComment()
+        { 
             return PartialView();
         }
 
         [HttpPost]
         public IActionResult AddComment(CreateCommentDto createCommentDto) 
         {
-            return RedirectToAction("Index", "Default");
+            return View();
                 
         }
     }
