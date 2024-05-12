@@ -27,8 +27,9 @@ namespace MultiShop.WebUI.Controllers
         } 
         
          
-        public  PartialViewResult AddComment()
-        { 
+        public  PartialViewResult AddComment(string id)
+        {
+            ViewBag.x = id;
             return PartialView();
         }
 

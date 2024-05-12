@@ -21,7 +21,7 @@
             }
         </div>
 
-        @await Html.PartialAsync("~/Views/ProductList/AddComment.cshtml", new { id = ViewBag.x })
+        @await Html.PartialAsync("~/Views/ProductList/AddComment.cshtml", new {id=Model[0].ProductId})
 
     </div>
 </div>

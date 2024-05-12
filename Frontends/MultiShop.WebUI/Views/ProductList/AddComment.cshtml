@@ -13,7 +13,8 @@
         </div>
     </div>
     <form method="post" asp-action="AddComment" asp-controller="ProductList">
-        
+        <input type="hidden" class="form-control" value="@ViewBag.x" name="ProductId">
+
         <div class="form-group">
             <label for="name">Adınız Soyadınız *</label>
             <input type="text" class="form-control" id="name" name="NameSurname">
