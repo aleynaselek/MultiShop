@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MultiShop.DtoLayer.CommentDtos;
 using Newtonsoft.Json;
+using System.Text;
 
 namespace MultiShop.WebUI.Controllers
 {
@@ -32,8 +33,20 @@ namespace MultiShop.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddComment(CreateCommentDto createCommentDto) 
+        public async Task<IActionResult> AddComment(CreateCommentDto createCommentDto) 
         {
+            createCommentDto.ImageURl = "test";
+            createCommentDto.Rating = 1;
+            createCommentDto.CreatedDate = DateTime.Parse(DateTime.Now.ToShortDateString());
+            createCommentDto.Status = false;
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createCommentDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8,"application/json");
+            var responseMessage = await client.PostAsync("http://localhost:7076/api/Comments", stringContent);
+            if(responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Index","Comment");
+            }
             return View();
                 
         }
