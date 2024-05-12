@@ -8,23 +8,30 @@
     <div class="row">
         <div class="col-md-12">
             <div class="chart-box">
-                <h4>Hakkımda Alanı Güncelleme Sayfası</h4> <br />
+                <h4>Yorum Alanı Güncelleme Sayfası</h4> <br />
                 <div class="bs-example" data-example-id="bordered-table">
                     <form method="post"> 
                         <input type="hidden" asp-for="UserCommentId" />
-                        <label>Açıklama</label>
+                        <input type="hidden" asp-for="ProductId" />
+                        <label>Kullanıcı Adı Soyadı</label>
                         <input type="text" asp-for="NameSurname" class="form-control" />
                         <br />
-                        <label>Adres</label>
-                        <input type="text" asp-for="Email" class="form-control" />
-                        <br />
-                        <label>Email</label>
-                        <input type="text" asp-for="CommentDetail" class="form-control" />
-                        <br />
-                        <label>Telefon</label>
+                        <label>Kullanıcı Görsel</label>
                         <input type="text" asp-for="ImageURl" class="form-control" />
                         <br />
-                        <button type="submit" class="btn btn-primary">Hakkımda Alanını Güncelle</button>
+                        <label>Email Adresi</label>
+                        <input type="text" asp-for="Email" class="form-control" />
+                        <br />
+                        <label>Kullanıcı Puanı</label>
+                        <input type="text" asp-for="Rating" class="form-control" />
+                        <br /> 
+                        <label>Yorum Tarihi</label>
+                        <input type="text" asp-for="CreatedDate" class="form-control" />
+                        <br /> 
+                        <label>Yorum</label>
+                        <textarea type="text" asp-for="CommentDetail" class="form-control" rows="3"></textarea>
+                        <br />                        
+                        <button type="submit" class="btn btn-primary">Yorumu Güncelle</button>
                     </form>
                 </div>
             </div>
