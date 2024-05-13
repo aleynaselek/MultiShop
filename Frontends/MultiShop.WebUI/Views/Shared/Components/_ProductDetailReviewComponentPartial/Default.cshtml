@@ -3,25 +3,28 @@
     <div class="row">
         <div class="col-md-6">
             <h4 class="mb-4">@Model.Count() yorum bulunmaktadır</h4>
+            @if(Model.Count > 0)
+            {
             @foreach (var item in Model)
             {
                 <div class="media mb-4">
-                    <img src="@item.ImageURl" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
-                <div class="media-body">
-                        <h6>@item.NameSurname<small> - <i>@item.CreatedDate.ToShortDateString()</i></small></h6>
-                    <div class="text-primary mb-2">
+                        <img src="@item.ImageURl" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                    <div class="media-body">
+                            <h6>@item.NameSurname<small> - <i>@item.CreatedDate.ToShortDateString()</i></small></h6>
+                        <div class="text-primary mb-2">
                             @for (int i = 0; i < 5; i++)
                             {
                                 <i class="@(item.Rating > i ? "fas fa-star" : "far fa-star")"></i>
                             }
+                        </div>
+                            <p>@item.CommentDetail</p>
                     </div>
-                        <p>@item.CommentDetail</p>
                 </div>
-            </div>
+                }
             }
         </div>
 
-        @await Html.PartialAsync("~/Views/ProductList/AddComment.cshtml", new {id=Model[0].ProductId})
+        @await Html.PartialAsync("~/Views/ProductList/AddComment.cshtml", new CreateCommentDto { ProductId = ViewBag.x })
 
     </div>
 </div>
