@@ -60,8 +60,8 @@ namespace MultiShop.WebUI.Controllers
                             IsPersistent = true
                         };
                         await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
-						var id = _loginService.GetUserId;
-						return RedirectToAction("Index", "Default");
+                        var id = _loginService.GetUserId;
+                        return RedirectToAction("Index", "Default");
 					}
 				}
 			}
