@@ -9,15 +9,14 @@ using System.Threading.Tasks;
 using static IdentityServer4.IdentityServerConstants;
 
 namespace MultiShop.IdentityServer.Controllers
-{ 
-    [AllowAnonymous]
+{  
     [Route("api/[controller]")]
     [ApiController]
     public class LoginsController : ControllerBase
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public LoginsController(SignInManager<IdentityUser> signInManager)
+        public LoginsController(SignInManager<ApplicationUser> signInManager)
         {
 			_signInManager = signInManager;
         }
