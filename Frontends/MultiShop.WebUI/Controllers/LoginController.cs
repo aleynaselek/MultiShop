@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc; 
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc; 
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
 using MultiShop.WebUI.Models;
 using Newtonsoft.Json;
 using NuGet.Protocol;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using System.Text.Json;
 using JsonSerializer = System.Text.Json.JsonSerializer;
@@ -42,12 +45,22 @@ namespace MultiShop.WebUI.Controllers
                     JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
                     var token = handler.ReadJwtToken(tokenModel.Token);
                     var claims = token.Claims.ToList();
-                }
 
-
+					if (tokenModel.Token != null)
+					{
+                        claims.Add(new Claim("multishoptoken", tokenModel.Token));
+                        var claimsIdentity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
+                        var authProps = new AuthenticationProperties
+                        {
+                            ExpiresUtc = tokenModel.ExpireDate,
+                            IsPersistent = true
+                        };
+                        await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProps);
+                        return RedirectToAction("Index", "Default");
+					}
+				}
 			}
-        return View();
-
+            return View();
         }
     }
 }
