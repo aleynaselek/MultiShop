@@ -1,34 +1,38 @@
-﻿using IdentityServer4.Hosting.LocalApiAuthentication;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.IdentityServer.Dtos;
 using MultiShop.IdentityServer.Models;
 using System.Threading.Tasks;
-using static IdentityServer4.IdentityServerConstants;
 
 namespace MultiShop.IdentityServer.Controllers
-{  
-    [Route("api/[controller]")]
+{
+	[Route("api/[controller]")]
     [ApiController]
     public class LoginsController : ControllerBase
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
-
-        public LoginsController(SignInManager<ApplicationUser> signInManager)
-        {
+        private readonly UserManager<ApplicationUser> _userManager;
+       
+		public LoginsController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+		{
+			_userManager = userManager;
 			_signInManager = signInManager;
-        }
+		}
 
-        [HttpPost]
+		[HttpPost]
         public async Task<IActionResult> UserLogin(UserLoginDto userLoginDto)
         {
              
             var result =  await _signInManager.PasswordSignInAsync(userLoginDto.Username, userLoginDto.Password,false,false);
+            var user = await _userManager.FindByNameAsync(userLoginDto.Username);
+
             if (result.Succeeded)
             {
-                return Ok("Giriş başarılı.");
+				GetCheckAppUserViewModel model = new GetCheckAppUserViewModel();
+                model.UserName = userLoginDto.Username;
+                model.Id = user.Id;
+				var token = JwtTokenGenerator.GenerateToken(model); 
+                return Ok(token);
             }
             else
             {
