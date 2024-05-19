@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MultiShop.DtoLayer.CatalogDtos.ContactDtos;
-using MultiShop.DtoLayer.CommentDtos;
+﻿using Microsoft.AspNetCore.Mvc; 
+using MultiShop.DtoLayer.IdentityDtos.RegisterDtos; 
 using Newtonsoft.Json;
 using System.Text;
 
@@ -20,18 +19,20 @@ namespace MultiShop.WebUI.Controllers
         } 
 
         [HttpPost]
-        public async Task<IActionResult> Index(CreateContactDto createContactDto)
-        {             
-            createContactDto.SendDate = DateTime.Now;
-            createContactDto.IsRead = "false";
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(createContactDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PostAsync("https://localhost:7072/api/Contacts", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
+        public async Task<IActionResult> Index(CreateRegisterDto createRegisterDto)
+        {   
+            if (createRegisterDto.Password == createRegisterDto.ConfirmPassword)
             {
-                return RedirectToAction("Index","Default");
-            }
+                createRegisterDto.Username = createRegisterDto.Email;  
+				var client = _httpClientFactory.CreateClient();
+                var jsonData = JsonConvert.SerializeObject(createRegisterDto);
+                StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+                var responseMessage = await client.PostAsync("http://localhost:5001/api/Registers", stringContent);
+                if (responseMessage.IsSuccessStatusCode)
+                {
+                    return RedirectToAction("Index", "Login");
+                }               
+            } 
             return View();
 
         }

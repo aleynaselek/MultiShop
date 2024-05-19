@@ -1,4 +1,4 @@
-﻿
+﻿@model CreateRegisterDto
 @{
     Layout = null;
 }
@@ -27,41 +27,41 @@
 					<a href="/Login/Index" class="account">Giriş Yap</a>
 				</div>
 			</div>
-			<form class="form-detail" action="#" method="post" id="myform">
+			<form class="form-detail" method="post">
 				<h2>MultiShop Kayıt Formu</h2>
 				<div class="form-group">
 					<div class="form-row form-row-1">
 						<label for="first_name">Adınız</label>
-						<input type="text" name="first_name" id="first_name" class="input-text">
+						<input type="text" id="first_name" class="input-text" asp-for="Name">
 					</div>
 					<div class="form-row form-row-1">
 						<label for="last_name">Soyadınız</label>
-						<input type="text" name="last_name" id="last_name" class="input-text">
+						<input type="text" id="last_name" class="input-text" asp-for="Surname">
 					</div>
 				</div>
 				<div class="form-row">
 					<label for="your_email">Email Adresi</label>
-					<input type="text" name="your_email" id="your_email" class="input-text" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}">
+					<input type="text"  id="your_email" class="input-text" required pattern="[^@@]+@@[^@@]+.[a-zA-Z]{2,6}" asp-for="Email">
 				</div>
 				<div class="form-group">
 					<div class="form-row form-row-1 ">
 						<label for="password">Şifre</label>
-						<input type="password" name="password" id="password" class="input-text" required>
+						<input type="password" id="password" class="input-text" asp-for="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@@$!%.?&])[A-Za-z\d@@$!%.?&]{8,}$">
 					</div>
 					<div class="form-row form-row-1">
 						<label for="comfirm-password">Şifre Tekrar</label>
-						<input type="password" name="comfirm_password" id="comfirm_password" class="input-text" required>
+						<input type="password" id="comfirm_password" class="input-text" asp-for="ConfirmPassword" required>
 					</div>
 				</div>
-				<div class="form-checkbox">
+				@* <div class="form-checkbox">
 					<label class="container">
 						<p>Şartları Okudum <a href="#" class="text">Kabul ediyorum.</a></p>
 					  	<input type="checkbox" name="checkbox">
 					  	<span class="checkmark"></span>
 					</label>
-				</div>
+				</div> *@
 				<div class="form-row-last">
-					<input type="submit" name="register" class="register" value="Register">
+					<button type="submit"  class="register">Kayıt Ol</button>
 				</div>
 			</form>
 		</div>
@@ -86,20 +86,20 @@
 		  	},
 		  	messages: {
 		  		first_name: {
-		  			required: "Please enter a firstname"
+		  			required: "Ad giriniz."
 		  		},
 		  		last_name: {
-		  			required: "Please enter a lastname"
+					required: "Soyad giriniz."
 		  		},
 		  		your_email: {
-		  			required: "Please provide an email"
+					required: "Email giriniz."
 		  		},
 		  		password: {
-	  				required: "Please enter a password"
+					required: "En az bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter içeren en az 8 karakter uzunluğunda bir şifre giriniz."
 		  		},
 		  		comfirm_password: {
-		  			required: "Please enter a password",
-		      		equalTo: "Wrong Password"
+					required: "En az bir büyük harf, bir küçük harf, bir rakam ve bir özel karakter içeren en az 8 karakter uzunluğunda bir şifre giriniz.",
+		      		equalTo: "Şifreler eşleşmiyor."
 		    	}
 		  	}
 		});
