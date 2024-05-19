@@ -22,8 +22,7 @@ namespace MultiShop.WebUI.Controllers
         public async Task<IActionResult> Index(CreateRegisterDto createRegisterDto)
         {   
             if (createRegisterDto.Password == createRegisterDto.ConfirmPassword)
-            {
-                createRegisterDto.Username = createRegisterDto.Email;  
+            { 
 				var client = _httpClientFactory.CreateClient();
                 var jsonData = JsonConvert.SerializeObject(createRegisterDto);
                 StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
