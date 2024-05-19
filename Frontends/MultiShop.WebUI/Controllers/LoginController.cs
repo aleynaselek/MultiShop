@@ -1,7 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc; 
-using MultiShop.DtoLayer.IdentityDtos.RegisterDtos; 
+using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
+using MultiShop.WebUI.Models;
 using Newtonsoft.Json;
+using NuGet.Protocol;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using System.Text.Json;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace MultiShop.WebUI.Controllers
 {
@@ -20,17 +25,28 @@ namespace MultiShop.WebUI.Controllers
 
         [HttpPost]
         public async Task<IActionResult> Index(CreateLoginDto createLoginDto)
-        {   
-            
-				var client = _httpClientFactory.CreateClient();
-                var jsonData = JsonConvert.SerializeObject(createLoginDto);
-                StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-                var responseMessage = await client.PostAsync("http://localhost:5001/api/Registers", stringContent);
-                if (responseMessage.IsSuccessStatusCode)
+        {               
+			var client = _httpClientFactory.CreateClient(); 
+            var content = new StringContent(JsonSerializer.Serialize(createLoginDto), Encoding.UTF8, "application/json");
+			var response = await client.PostAsync("http://localhost:5001/api/Logins", content);
+            if (response.IsSuccessStatusCode)
+            {
+                var jsonData = await response.Content.ReadAsStringAsync();
+                var tokenModel = JsonSerializer.Deserialize<JwtResponseModel>(jsonData, new JsonSerializerOptions
                 {
-                    return RedirectToAction("Index", "Login");
+                    PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                });
+
+                if(tokenModel != null) 
+                {
+                    JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+                    var token = handler.ReadJwtToken(tokenModel.Token);
+                    var claims = token.Claims.ToList();
                 }
-            return View();
+
+
+			}
+        return View();
 
         }
     }
