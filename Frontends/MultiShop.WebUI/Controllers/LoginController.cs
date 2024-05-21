@@ -3,8 +3,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc; 
 using MultiShop.DtoLayer.IdentityDtos.LoginDtos;
 using MultiShop.WebUI.Models;
-using MultiShop.WebUI.Services;
-using MultiShop.WebUI.Services.Concrete;
+using MultiShop.WebUI.Services; 
+using MultiShop.WebUI.Services.Interfaces;
 using Newtonsoft.Json;
 using NuGet.Protocol;
 using System.IdentityModel.Tokens.Jwt;
@@ -19,9 +19,9 @@ namespace MultiShop.WebUI.Controllers
     {
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ILoginService _loginService;
-        private readonly IdentityService _identityService;
+        private readonly IIdentityService _identityService;
 
-        public LoginController(IHttpClientFactory httpClientFactory, ILoginService loginService, IdentityService identityService)
+        public LoginController(IHttpClientFactory httpClientFactory, ILoginService loginService, IIdentityService identityService)
         {
             _httpClientFactory = httpClientFactory;
             _loginService = loginService;
@@ -81,7 +81,7 @@ namespace MultiShop.WebUI.Controllers
         public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
             signInDto.Username = "ali01";
-            signInDto.Password = "SignUp.";
+            signInDto.Password = "11111aA.";
             await _identityService.SignIn(signInDto);
 
             return RedirectToAction("Index", "Test");

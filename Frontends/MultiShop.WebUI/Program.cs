@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped<ILoginService, LoginService>(); 
 builder.Services.AddHttpClient<IIdentityService, IdentityService>();
 
 builder.Services.AddHttpClient();
