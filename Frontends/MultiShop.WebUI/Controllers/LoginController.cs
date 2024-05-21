@@ -72,17 +72,17 @@ namespace MultiShop.WebUI.Controllers
         }
 
 
-        public IActionResult SignUp()
+        public IActionResult SignIn()
         {
             return View();
         }
 
         [HttpPost]
-        public async IActionResult SignUp(SignUpDto signUpDto)
+        public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
-            signUpDto.Username = "ali01";
-            signUpDto.Password = "11111aA.";
-            await _identityService.SignIn(signUpDto);
+            signInDto.Username = "ali01";
+            signInDto.Password = "SignUp.";
+            await _identityService.SignIn(signInDto);
 
             return RedirectToAction("Index", "Test");
         }
