@@ -77,6 +77,9 @@ namespace MultiShop.WebUI.Services.Concrete
             }); 
 
             authenticationProperties.IsPersistent = false; 
+
+            await _httpContextAccessor.HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,claimsPrincipal,authenticationProperties);
+            return true;
         }
     }
 }
