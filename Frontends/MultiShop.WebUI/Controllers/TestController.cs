@@ -30,7 +30,7 @@ namespace MultiShop.WebUI.Controllers
                     Method = HttpMethod.Post,
                     Content = new FormUrlEncodedContent(new Dictionary<string, string>
                                 {
-                                    {"client_id", "MultiShopAdminId" },
+                                    {"client_id", "MultiShopVisitorId" },
                                     {"client_secret","multishopsecret" },
                                     {"grant_type","client_credentials"}
                                     })

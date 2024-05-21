@@ -80,8 +80,8 @@ namespace MultiShop.WebUI.Controllers
         //[HttpPost]
         public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
-            signInDto.Username = "ali01";
-            signInDto.Password = "11111aA.";
+            signInDto.Username = "ayse01";
+            signInDto.Password = "22222aA.";
             await _identityService.SignIn(signInDto);
 
             return RedirectToAction("Index", "Test");
