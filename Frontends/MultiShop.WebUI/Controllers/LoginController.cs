@@ -72,12 +72,12 @@ namespace MultiShop.WebUI.Controllers
         }
 
 
-        public IActionResult SignIn()
-        {
-            return View();
-        }
+        //public IActionResult SignIn()
+        //{
+        //    return View();
+        //}
 
-        [HttpPost]
+        //[HttpPost]
         public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
             signInDto.Username = "ali01";

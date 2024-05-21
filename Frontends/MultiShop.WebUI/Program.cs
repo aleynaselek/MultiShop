@@ -19,7 +19,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).
     AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, opt =>
     {
-        opt.LoginPath = "Login/Index/"; 
+        opt.LoginPath = "/Login/Index/"; 
         opt.ExpireTimeSpan = TimeSpan.FromDays(5);
         opt.Cookie.Name = "MultiShopCookie";
         opt.SlidingExpiration = true;
