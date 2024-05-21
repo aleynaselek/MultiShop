@@ -44,6 +44,7 @@ namespace MultiShop.WebUI.ViewComponents.UILayoutViewComponents
                 }
             }
 
+
             var client = _httpClientFactory.CreateClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
 
