@@ -71,6 +71,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{DE019283-6676-4EA1-9F3E-4A306736F078}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.ApiGateway", "ApiGateway\MultiShop.ApiGateway\MultiShop.ApiGateway.csproj", "{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{0A9E7A49-B7C0-469E-96AC-FBFB859A53AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A9E7A49-B7C0-469E-96AC-FBFB859A53AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A9E7A49-B7C0-469E-96AC-FBFB859A53AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +177,7 @@ Global
 		{BADF6283-28F6-46FA-B7DF-55AA7AA064A7} = {DF21F86F-D822-44AC-8172-F2C6530D692C}
 		{B2AB37A3-CDF7-4E2D-A6C3-132F65450D77} = {CC189B92-89D7-46D0-BFB9-6CE551A4C9FD}
 		{0A9E7A49-B7C0-469E-96AC-FBFB859A53AF} = {B2AB37A3-CDF7-4E2D-A6C3-132F65450D77}
+		{5D11D20D-A6F6-4DDA-B129-7F318077EC0D} = {4E730429-CE5A-4EEA-ACB8-B4CAC7E39342}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0859360E-C7B5-4AAD-98FF-4A6D5CAAA26B}
