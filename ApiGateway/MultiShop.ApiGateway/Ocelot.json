@@ -119,7 +119,7 @@
         "AllowedScopes": [ "PaymentFullPermission" ]
       }
     },
-    { //Images   --> 7077
+    { //Images   --> 7078
       "DownstreamPathTemplate": "/api/{everything}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
