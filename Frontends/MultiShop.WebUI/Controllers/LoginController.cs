@@ -70,13 +70,7 @@ namespace MultiShop.WebUI.Controllers
 			}
             return View();
         }
-
-
-        //public IActionResult SignIn()
-        //{
-        //    return View();
-        //}
-
+         
         //[HttpPost]
         public async Task<IActionResult> SignIn(SignInDto signInDto)
         {
