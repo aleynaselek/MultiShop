@@ -73,15 +73,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RapidApi", "RapidApi", "{DE019283-6676-4EA1-9F3E-4A306736F078}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.ApiGateway", "ApiGateway\MultiShop.ApiGateway\MultiShop.ApiGateway.csproj", "{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.OcelotGateway", "ApiGateway\MultiShop.ApiGateway\MultiShop.OcelotGateway.csproj", "{5D11D20D-A6F6-4DDA-B129-7F318077EC0D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Payment", "Payment", "{FD44A6CA-74A0-44FD-B141-3202CDDE4DC6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Payment", "Services\MultiShop.Payment\MultiShop.Payment.csproj", "{7D45E29E-24AF-4DFC-AF84-FCFD98257E72}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Payment", "Services\MultiShop.Payment\MultiShop.Payment.csproj", "{7D45E29E-24AF-4DFC-AF84-FCFD98257E72}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{DABC03DD-16FA-4DCB-BDBD-DEBCFCFA7D8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Images", "Services\MultiShop.Images\MultiShop.Images.csproj", "{FCCC8036-B91E-4E47-A4F5-8D38DB92B9D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Images", "Services\MultiShop.Images\MultiShop.Images.csproj", "{FCCC8036-B91E-4E47-A4F5-8D38DB92B9D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
