@@ -32,6 +32,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             ViewBag.v0 = "Ürün İşlemleri";
         }
 
+
         [Route("Index")]
         public async Task<IActionResult> Index()
         {
