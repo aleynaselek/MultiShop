@@ -1,8 +1,8 @@
 ﻿using MultiShop.WebUI.Models;
 
-namespace MultiShop.WebUI.Services
+namespace MultiShop.WebUI.Services.Interfaces
 {
-	public interface IUserService
+    public interface IUserService
     {
         Task<UserDetailViewModel> GetUserInfo();
     }

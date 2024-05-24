@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using MultiShop.WebUI.Services.CatalogServices.CategoryServices; 
 using MultiShop.WebUI.Handlers;
-using MultiShop.WebUI.Services;
 using MultiShop.WebUI.Services.Concrete;
 using MultiShop.WebUI.Services.Interfaces;
 using MultiShop.WebUI.Settings;
@@ -15,6 +14,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     opt.AccessDeniedPath = "/Pages/AccessDenied/";
     opt.Cookie.HttpOnly = true;
     opt.Cookie.SameSite = SameSiteMode.Strict;
+    opt.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest;
     opt.Cookie.Name = "MultiShopJwt";
 });
 
@@ -48,6 +48,7 @@ builder.Services.AddScoped<ClientCredentialTokenHandler>();
 builder.Services.AddHttpClient<IClientCredentialTokenService, ClientCredentialTokenService>();
 
 var values = builder.Configuration.GetSection("ServiceApiSettings").Get<ServiceApiSettings>();
+
 builder.Services.AddHttpClient<IUserService, UserService>(opt =>
 {
     opt.BaseAddress = new Uri(values.IdentityServerUrl);

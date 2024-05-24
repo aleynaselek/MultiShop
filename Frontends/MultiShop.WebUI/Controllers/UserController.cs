@@ -1,12 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using MultiShop.DtoLayer.CatalogDtos.ContactDtos;
-using MultiShop.DtoLayer.CommentDtos;
-using MultiShop.WebUI.Models;
-using MultiShop.WebUI.Services;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net.Http.Headers;
-using System.Text;
+﻿using Microsoft.AspNetCore.Mvc; 
+using MultiShop.WebUI.Services.Interfaces; 
 
 namespace MultiShop.WebUI.Controllers
 {

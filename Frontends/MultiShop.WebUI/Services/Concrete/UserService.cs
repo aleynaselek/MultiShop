@@ -1,4 +1,5 @@
 ﻿using MultiShop.WebUI.Models;
+using MultiShop.WebUI.Services.Interfaces;
 
 namespace MultiShop.WebUI.Services.Concrete
 {
