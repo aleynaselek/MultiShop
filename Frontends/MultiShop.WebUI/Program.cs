@@ -98,7 +98,7 @@ builder.Services.AddHttpClient<IBrandService, BrandService>(opt =>
 builder.Services.AddHttpClient<IAboutService, AboutService>(opt =>
 {
     opt.BaseAddress = new Uri($"{values.OcelotUrl}/{values.Catalog.Path}");
-}).
+}).AddHttpMessageHandler<ClientCredentialTokenHandler>();
 
 var app = builder.Build();
 
