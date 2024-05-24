@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using MultiShop.Catalog.Services.CategoryServices;
+using MultiShop.WebUI.Services.CatalogServices.CategoryServices; 
 using MultiShop.WebUI.Handlers;
 using MultiShop.WebUI.Services;
 using MultiShop.WebUI.Services.Concrete;
@@ -26,7 +26,9 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
         opt.Cookie.Name = "MultiShopCookie";
         opt.SlidingExpiration = true;
     } 
-); 
+);
+
+builder.Services.AddAccessTokenManagement();
 
 builder.Services.AddHttpContextAccessor();
 

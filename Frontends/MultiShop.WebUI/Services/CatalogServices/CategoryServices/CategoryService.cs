@@ -1,7 +1,7 @@
 ﻿
-using MultiShop.Catalog.Dtos.CategoryDtos;
-using MultiShop.WebUI.Settings;
-using System.Net.Http.Json;
+using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
+using Newtonsoft.Json;
+
 
 
 namespace MultiShop.WebUI.Services.CatalogServices.CategoryServices
@@ -28,7 +28,8 @@ namespace MultiShop.WebUI.Services.CatalogServices.CategoryServices
         public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
         {
             var responseMessage = await _httpClient.GetAsync("categories");
-            var values = await responseMessage.Content.ReadFromJsonAsync<List<ResultCategoryDto>>();
+            var jsonData = await responseMessage.Content.ReadAsStringAsync();
+            var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
             return values;
         }
 

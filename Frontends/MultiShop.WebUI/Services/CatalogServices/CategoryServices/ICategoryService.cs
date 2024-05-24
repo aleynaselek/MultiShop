@@ -1,4 +1,4 @@
-﻿using MultiShop.Catalog.Dtos.CategoryDtos;
+﻿using MultiShop.DtoLayer.CatalogDtos.CategoryDtos;
 
 namespace MultiShop.WebUI.Services.CatalogServices.CategoryServices
 {

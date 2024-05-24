@@ -24,15 +24,7 @@ namespace MultiShop.WebUI.Handlers
              
             request.Headers.Authorization = new AuthenticationHeaderValue("Bearer",await _clientCredentialTokenService.GetToken());
             var response = await base.SendAsync(request, cancellationToken);
-            if (response.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                var tokenResponse = await _identityService.GetRefreshToken();
-                if (tokenResponse != null)
-                {
-                    request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-                    response = await base.SendAsync(request, cancellationToken);
-                }
-            }
+         
             if (response.StatusCode == HttpStatusCode.Unauthorized)
             {
                 //hata mesajı
