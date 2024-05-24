@@ -50,13 +50,8 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         [Route("DeleteCategory/{id}")]
         public async Task<IActionResult> DeleteCategory(string id)
         {
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.DeleteAsync("http://localhost:7072/api/Categories?id="+id);
-            if(responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Category", new { area = "Admin" });
-            }
-            return View();
+            await _categoryService.DeleteCategoryAsync(id);
+            return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
 
         [Route("UpdateCategory/{id}")]
@@ -64,30 +59,16 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> UpdateCategory(string id)
         {
             CategoryViewbagList();
-            var client = _httpClientFactory.CreateClient();
-            var responseMessage = await client.GetAsync("http://localhost:7072/api/Categories/"+id);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                var jsonData = await responseMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
-                return View(values);
-            }
-            return View();
+            var values = await _categoryService.GetByIdCategoryAsync(id);
+            return View(values);
         }
 
         [Route("UpdateCategory/{id}")]
         [HttpPost]
         public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
         {
-            var client = _httpClientFactory.CreateClient();
-            var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
-            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responseMessage = await client.PutAsync("http://localhost:7072/api/Categories/", stringContent);
-            if (responseMessage.IsSuccessStatusCode)
-            {
-                return RedirectToAction("Index", "Category", new { area = "Admin" });
-            }
-            return View();
+            await _categoryService.UpdateCategoryAsync(updateCategoryDto);
+            return RedirectToAction("Index", "Category", new { area = "Admin" });
         }
 
         void CategoryViewbagList()
