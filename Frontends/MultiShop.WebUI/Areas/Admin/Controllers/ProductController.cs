@@ -40,7 +40,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
             var values = await _productService.GetAllProductAsync();
             return View(values);
         }
-
+         
         [Route("ProductListWithCategory")]
         public async Task<IActionResult> ProductListWithCategory()
         {
