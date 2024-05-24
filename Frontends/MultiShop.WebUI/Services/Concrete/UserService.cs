@@ -15,4 +15,4 @@ namespace MultiShop.WebUI.Services.Concrete
             return await _httpClient.GetFromJsonAsync<UserDetailViewModel>("/api/users/getuser");
         }
     }
-}
+} 
