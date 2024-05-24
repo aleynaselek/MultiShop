@@ -11,14 +11,12 @@ namespace MultiShop.WebUI.Handlers
         private readonly IClientCredentialTokenService _clientCredentialTokenService;
         private readonly IIdentityService _identityService;
 
-        public ClientCredentialTokenHandler(IIdentityService identityService)
+        
+        public ClientCredentialTokenHandler(IClientCredentialTokenService clientCredentialTokenService, IIdentityService identityService)
         {
             _identityService = identityService;
-        }
-
-        public ClientCredentialTokenHandler(IClientCredentialTokenService clientCredentialTokenService)
-        {
             _clientCredentialTokenService = clientCredentialTokenService;
+
         }
 
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
