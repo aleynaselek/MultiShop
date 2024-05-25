@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MultiShop.Discount.Dtos;
-using MultiShop.Discount.Entities;
 using MultiShop.Discount.Services;
 
 namespace MultiShop.Discount.Controllers
@@ -13,7 +12,6 @@ namespace MultiShop.Discount.Controllers
     public class DiscountsController : ControllerBase
     {
         private readonly IDiscountService _discountService;
-
         public DiscountsController(IDiscountService discountService)
         {
             _discountService = discountService;
@@ -33,10 +31,17 @@ namespace MultiShop.Discount.Controllers
             return Ok(values);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> CreateDiscountCoupon(CreateDiscountCouponDto createDiscountCouponDto)
+        [HttpGet("GetCodeDetailByCodeAsync")]
+        public async Task<IActionResult> GetCodeDetailByCodeAsync(string code)
         {
-            await _discountService.CreateDiscountCouponAsync(createDiscountCouponDto);
+            var values = await _discountService.GetCodeDetailByCodeAsync(code);
+            return Ok(values);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateDiscountCoupon(CreateDiscountCouponDto createCouponDto)
+        {
+            await _discountService.CreateDiscountCouponAsync(createCouponDto);
             return Ok("Kupon başarıyla oluşturuldu");
         }
 
@@ -48,10 +53,18 @@ namespace MultiShop.Discount.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateDiscountCoupon(UpdateDiscountCouponDto updateDiscountCouponDto)
+        public async Task<IActionResult> UpdateDiscountCoupon(UpdateDiscountCouponDto updateCouponDto)
         {
-            await _discountService.UpdateDiscountCouponAsync(updateDiscountCouponDto);
+            await _discountService.UpdateDiscountCouponAsync(updateCouponDto);
             return Ok("İndirim kuponu başarıyla güncellendi");
+        }
+
+        [HttpGet("GetDiscountCouponCountRate")]
+        public IActionResult GetDiscountCouponCountRate(string code)
+        {
+            var values = _discountService.GetDiscountCouponCountRate(code);
+            return Ok(values);
         }
     }
 }
+// public int GetDiscountCouponCountRate(string code)
