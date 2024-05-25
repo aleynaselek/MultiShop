@@ -32,7 +32,7 @@ namespace MultiShop.Basket.Controllers
         {
             basketTotalDto.UserId = _loginService.GetUserId;
             await _basketService.SaveBasket(basketTotalDto);
-            return Ok("Ürün Sepete Eklendi");
+            return Ok("Sepetteki değişiklikler kaydedildi");
         }
 
 
