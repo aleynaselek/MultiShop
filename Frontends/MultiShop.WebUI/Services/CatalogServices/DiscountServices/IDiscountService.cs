@@ -8,3 +8,4 @@ namespace MultiShop.WebUI.Services.DiscountServices
         Task<int> GetDiscountCouponCountRate(string code);
     }
 }
+ 
