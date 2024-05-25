@@ -38,7 +38,7 @@ namespace MultiShop.WebUI.Services.BasketServices
             var values = await responseMessage.Content.ReadFromJsonAsync<BasketTotalDto>();
             return values;
         } 
-
+         
         public async Task<bool> RemoveBasketItem(string productId)
         {
             var values = await GetBasket();
