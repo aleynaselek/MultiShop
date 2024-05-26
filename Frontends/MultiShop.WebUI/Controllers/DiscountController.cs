@@ -26,9 +26,14 @@ namespace MultiShop.WebUI.Controllers
             var values = await _discountService.GetDiscountCouponCountRate(code);
 
             var basketValues = await _basketService.GetBasket();
-            var totalPriceWithTax = basketValues.TotalPrice + basketValues.TotalPrice / 100 * 10;
-
-            var totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax / 100 * values);
+            var tax = basketValues.TotalPrice / 10;
+            var totalPriceWithTax = basketValues.TotalPrice + tax;
+            var totalNewPriceWithDiscount = totalPriceWithTax;
+            if (values != 0) 
+            { 
+                totalNewPriceWithDiscount = totalPriceWithTax - (totalPriceWithTax / 100 * values); 
+            }
+             
             // ViewBag.totalNewPriceWithDiscount = totalNewPriceWithDiscount;
 
             return RedirectToAction("Index", "ShoppingCart", new { code = code, discountRate = values, totalNewPriceWithDiscount = totalNewPriceWithDiscount });
