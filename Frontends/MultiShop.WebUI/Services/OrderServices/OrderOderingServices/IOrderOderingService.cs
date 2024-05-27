@@ -7,3 +7,4 @@ namespace MultiShop.WebUI.Services.OrderServices.OrderOderingServices
         Task<List<ResultOrderingByUserIdDto>> GetOrderingByUserId(string id);
     }
 }
+ 
