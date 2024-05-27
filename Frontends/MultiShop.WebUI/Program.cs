@@ -23,7 +23,7 @@ using MultiShop.WebUI.Services.OrderServices.OrderAddressServices;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCookie(JwtBearerDefaults.AuthenticationScheme, opt => 
 { 
-    opt.LoginPath = "/Login/Index/";
+    opt.LoginPath = "/Login/Index/"; 
     opt.LogoutPath = "/Login/Logout/";
     opt.AccessDeniedPath = "/Pages/AccessDenied/";
     opt.Cookie.HttpOnly = true;
