@@ -62,7 +62,7 @@ namespace MultiShop.IdentityServer
                 AllowedScopes = { "CatalogReadPermission", "CatalogFullPermission", "OcelotFullPermission", "CommentFullPermission", "ImagesFullPermission" , "BasketFullPermission",IdentityServerConstants.LocalApi.ScopeName }
             },
             
-            //Manager
+            //Manager 
             new Client
             {
                 ClientId = "MultiShopManagerId",
