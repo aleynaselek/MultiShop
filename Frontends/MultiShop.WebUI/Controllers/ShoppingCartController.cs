@@ -29,7 +29,7 @@ namespace MultiShop.WebUI.Controllers
             ViewBag.totalPriceWithTax = totalPriceWithTax;
             ViewBag.tax = tax;
             return View();
-        }
+        } 
 
         //[HttpPost]
         public async Task<IActionResult> AddBasketItem(string id)
