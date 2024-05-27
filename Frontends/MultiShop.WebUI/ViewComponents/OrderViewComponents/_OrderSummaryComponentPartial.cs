@@ -14,6 +14,9 @@ namespace MultiShop.WebUI.ViewComponents.OrderViewComponents
         {
             var basketTotal = await _basketService.GetBasket();
             var basketItems = basketTotal.BasketItems;
+            var tax = basketTotal.TotalPrice / 10;
+            var totalPriceWithTax = basketTotal.TotalPrice + tax;
+            ViewBag.totalPriceWithTax = totalPriceWithTax;
             return View(basketItems);
         }
     }
