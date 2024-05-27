@@ -90,7 +90,7 @@ namespace MultiShop.Discount.Services
             parameters.Add("@couponId", updateCouponDto.CouponId);
             using (var connection = _context.CreateConnection())
             {
-                await connection.ExecuteAsync(query, parameters);
+                await connection.ExecuteAsync(query, parameters); 
             }
         }
     }
