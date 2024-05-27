@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MultiShop.Order.Persistance.Repository
+namespace MultiShop.Order.Persistance.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
