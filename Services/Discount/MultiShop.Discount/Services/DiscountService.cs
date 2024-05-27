@@ -65,7 +65,7 @@ namespace MultiShop.Discount.Services
                 var values = await connection.QueryFirstOrDefaultAsync<ResultDiscountCouponDto>(query, parameters);
                 return values;
             }
-        }
+        } 
 
         public int GetDiscountCouponCountRate(string code)
         {
