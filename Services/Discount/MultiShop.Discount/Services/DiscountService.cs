@@ -77,7 +77,7 @@ namespace MultiShop.Discount.Services
                 var values = connection.QueryFirstOrDefault<int>(query, parameters);
                 return values;
             }
-        }
+        } 
 
         public async Task UpdateDiscountCouponAsync(UpdateDiscountCouponDto updateCouponDto)
         {
