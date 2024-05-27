@@ -1,4 +1,4 @@
-﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands; 
+﻿using MultiShop.Order.Application.Features.CQRS.Commands.AddressCommands;
 using MultiShop.Order.Application.Interfaces;
 using MultiShop.Order.Domain.Entities;
 using System;
@@ -16,16 +16,14 @@ namespace MultiShop.Order.Application.Features.CQRS.Handlers.AddressHandlers
         {
             _repository = repository;
         }
-
         public async Task Handle(UpdateAddressCommand command)
         {
             var values = await _repository.GetByIdAsync(command.AddressId);
-            values.UserId = command.UserId;
+            values.Detail1 = command.Detail;
+            values.District = command.District;
             values.City = command.City;
-            values.District = command.District; 
-            values.Detail = command.Detail; 
-            await _repository.UpdateAsync(values);          
-
+            values.UserId = command.UserId;
+            await _repository.UpdateAsync(values);
         }
     }
 }
