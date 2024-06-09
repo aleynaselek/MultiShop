@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using MultiShop.Message.DAL.Entities;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Services.AddEntityFrameworkNpgsql().AddDbContext<MessageContext>(opt=>
+{
+    opt.UseNpgsql(confi)
+});
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
