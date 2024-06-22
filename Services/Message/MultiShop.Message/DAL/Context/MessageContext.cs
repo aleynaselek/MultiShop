@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Security.Cryptography.X509Certificates;
+using MultiShop.Message.DAL.Entities; 
 
-namespace MultiShop.Message.DAL.Entities
+namespace MultiShop.Message.DAL.Context
 {
     public class MessageContext : DbContext
     {

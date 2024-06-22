@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using MultiShop.Message.DAL.Context;
 using MultiShop.Message.DAL.Entities;
 using MultiShop.Message.Dtos;
 
