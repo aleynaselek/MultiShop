@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using MultiShop.Message.DAL.Context;
 using MultiShop.Message.DAL.Entities;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 

@@ -1,7 +1,9 @@
-﻿namespace MultiShop.Message.DAL.Entities
+﻿
+
+namespace MultiShop.Message.DAL.Entities
 {
     public class UserMessage
-    {
+    { 
         public int UserMessageId { get; set; }
         public string SenderId { get; set; }
         public string ReceiverId { get; set; }
