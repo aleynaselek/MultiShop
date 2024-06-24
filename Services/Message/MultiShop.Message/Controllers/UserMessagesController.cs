@@ -19,7 +19,7 @@ namespace MultiShop.Message.Controllers
         public async Task<IActionResult> GetAllMessage()
         {
             var values = await _userMessageService.GetAllMessageAsync();
-            return Ok(values);
+            return Ok(values); 
         }
 
 
