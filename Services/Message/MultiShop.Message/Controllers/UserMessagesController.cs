@@ -23,14 +23,14 @@ namespace MultiShop.Message.Controllers
         }
 
 
-        [HttpGet("(GetMessageSendBox)")]
+        [HttpGet("GetMessageSendBox")]
         public async Task<IActionResult> GetMessageSendBox(string id)
         {
             var values = await _userMessageService.GetSendboxMessageAsync(id);
             return Ok(values);
         }
         
-        [HttpGet("(GetMessageInbox)")]
+        [HttpGet("GetMessageInbox")]
         public async Task<IActionResult> GetMessageInbox(string id)
         {
             var values = await _userMessageService.GetInboxMessageAsync(id);
