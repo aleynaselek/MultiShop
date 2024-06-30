@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using MultiShop.IdentityServer.Dtos;
 using MultiShop.IdentityServer.Models;
 using System.IdentityModel.Tokens.Jwt;
@@ -16,13 +17,10 @@ namespace MultiShop.IdentityServer.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly SignInManager<ApplicationUser> _signInManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-       
-		public UsersController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        private readonly UserManager<ApplicationUser> _userManager;       
+		public UsersController( UserManager<ApplicationUser> userManager)
 		{
-			_userManager = userManager;
-			_signInManager = signInManager;
+			_userManager = userManager; 
 		}
 
 		[HttpGet("GetUser")]
@@ -39,6 +37,13 @@ namespace MultiShop.IdentityServer.Controllers
                 Email = user.Email,
                 Usrename = user.UserName
             } ); 
+        }
+
+        [HttpGet("GetAllUserList")]
+        public async Task<IActionResult> GetAllUserList()
+        {
+            var users = await _userManager.Users.ToListAsync();
+            return Ok(users);
         }
     }
 }
