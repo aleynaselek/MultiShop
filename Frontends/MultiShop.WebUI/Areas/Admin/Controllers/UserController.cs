@@ -7,7 +7,7 @@ namespace MultiShop.WebUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class UserController : Controller
     {
-        private readonly IUserIdentityService _userIdentityService;
+        private readonly IUserIdentityService _userIdentityService; 
         //private readonly ICargoCustomerService _cargoCustomerService;
         public UserController(IUserIdentityService userIdentityService/*, ICargoCustomerService cargoCustomerService*/)
         {
