@@ -23,7 +23,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model)
+                            @if (Model != null)
+                            {@foreach (var item in Model)
                             {
                                 count++;
                                 <tr> 
@@ -35,6 +36,7 @@
                                     <td><a href="/Admin/Comment/DeleteComment/@item.UserCommentId" class="btn btn-danger">Sil</a></td>
                                     <td><a href="/Admin/Comment/UpdateComment/@item.UserCommentId" class="btn btn-success">Güncelle</a></td>
                                 </tr>
+                            }                           
                             }                           
                         </tbody>
                     </table>
