@@ -1,12 +1,4 @@
-/*
- * jQuery Easing v1.4.1 - http://gsgd.co.uk/sandbox/jquery/easing/
- * Open source under the BSD License.
- * Copyright © 2008 George McGinley Smith
- * All rights reserved.
- * https://raw.github.com/gdsmith/jquery-easing/master/LICENSE
-*/
-
-(function (factory) {
+ (function (factory) {
 	if (typeof define === "function" && define.amd) {
 		define(['jquery'], function ($) {
 			return factory($);
@@ -17,8 +9,7 @@
 		factory(jQuery);
 	}
 })(function($){
-
-// Preserve the original jQuery "swing" easing as "jswing"
+	 
 if (typeof $.easing !== 'undefined') {
 	$.easing['jswing'] = $.easing['swing'];
 }
@@ -33,8 +24,7 @@ var pow = Math.pow,
 	c3 = c1 + 1,
 	c4 = ( 2 * PI ) / 3,
 	c5 = ( 2 * PI ) / 4.5;
-
-// x is the fraction of animation progress, in the range 0..1
+	 
 function bounceOut(x) {
 	var n1 = 7.5625,
 		d1 = 2.75;
