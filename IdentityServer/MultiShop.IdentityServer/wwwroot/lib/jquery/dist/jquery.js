@@ -1,29 +1,11 @@
-/*!
- * jQuery JavaScript Library v3.5.0
- * https://jquery.com/
- *
- * Includes Sizzle.js
- * https://sizzlejs.com/
- *
- * Copyright JS Foundation and other contributors
- * Released under the MIT license
- * https://jquery.org/license
- *
- * Date: 2020-04-10T15:07Z
- */
+ 
 ( function( global, factory ) {
 
 	"use strict";
 
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 
-		// For CommonJS and CommonJS-like environments where a proper `window`
-		// is present, execute the factory and get jQuery.
-		// For environments that do not have a `window` with a `document`
-		// (such as Node.js), expose a factory as module.exports.
-		// This accentuates the need for the creation of a real `window`.
-		// e.g. var jQuery = require("jquery")(window);
-		// See ticket #14549 for more info.
+		 
 		module.exports = global.document ?
 			factory( global, true ) :
 			function( w ) {
@@ -38,11 +20,7 @@
 
 // Pass this if window is not defined yet
 } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {
-
-// Edge <= 12 - 13+, Firefox <=18 - 45+, IE 10 - 11, Safari 5.1 - 9+, iOS 6 - 9.1
-// throw exceptions when non-strict code (e.g., ASP.NET 4.5) accesses strict mode
-// arguments.callee.caller (trac-13335). But as of jQuery 3.0 (2016), strict mode should be common
-// enough that all such attempts are guarded in a try block.
+ 
 "use strict";
 
 var arr = [];
@@ -76,10 +54,7 @@ var support = {};
 
 var isFunction = function isFunction( obj ) {
 
-      // Support: Chrome <=57, Firefox <=52
-      // In some browsers, typeof returns "function" for HTML <object> elements
-      // (i.e., `typeof document.createElement( "object" ) === "function"`).
-      // We don't want to classify *any* DOM node as a function.
+      
       return typeof obj === "function" && typeof obj.nodeType !== "number";
   };
 
@@ -109,17 +84,7 @@ var document = window.document;
 		script.text = code;
 		if ( node ) {
 			for ( i in preservedScriptAttributes ) {
-
-				// Support: Firefox 64+, Edge 18+
-				// Some browsers don't support the "nonce" property on scripts.
-				// On the other hand, just using `getAttribute` is not enough as
-				// the `nonce` attribute is reset to an empty string whenever it
-				// becomes browsing-context connected.
-				// See https://github.com/whatwg/html/issues/2369
-				// See https://html.spec.whatwg.org/#nonce-attributes
-				// The `node.getAttribute` check was added for the sake of
-				// `jQuery.globalEval` so that it can fake a nonce-containing node
-				// via an object.
+ 
 				val = node[ i ] || node.getAttribute && node.getAttribute( i );
 				if ( val ) {
 					script.setAttribute( i, val );
@@ -139,21 +104,14 @@ function toType( obj ) {
 	return typeof obj === "object" || typeof obj === "function" ?
 		class2type[ toString.call( obj ) ] || "object" :
 		typeof obj;
-}
-/* global Symbol */
-// Defining this global in .eslintrc.json would create a danger of using the global
-// unguarded in another place, it seems safer to define global only for this module
-
-
+} 
 
 var
 	version = "3.5.0",
 
 	// Define a local copy of jQuery
 	jQuery = function( selector, context ) {
-
-		// The jQuery object is actually just the init constructor 'enhanced'
-		// Need init if jQuery is called (just allow error to be thrown if not included)
+		 
 		return new jQuery.fn.init( selector, context );
 	};
 
@@ -170,9 +128,7 @@ jQuery.fn = jQuery.prototype = {
 	toArray: function() {
 		return slice.call( this );
 	},
-
-	// Get the Nth element in the matched element set OR
-	// Get the whole matched element set as a clean array
+ 
 	get: function( num ) {
 
 		// Return all the elements in a clean array
@@ -501,11 +457,7 @@ function( _i, name ) {
 } );
 
 function isArrayLike( obj ) {
-
-	// Support: real iOS 8.2 only (not reproducible in simulator)
-	// `in` check used to prevent JIT error (gh-2145)
-	// hasOwn isn't used here due to false negatives
-	// regarding Nodelist length in IE
+ 
 	var length = !!obj && "length" in obj && obj.length,
 		type = toType( obj );
 
@@ -672,14 +624,9 @@ var i,
 		var high = "0x" + escape.slice( 1 ) - 0x10000;
 
 		return nonHex ?
-
-			// Strip the backslash prefix from a non-hex escape sequence
+		 
 			nonHex :
-
-			// Replace a hexadecimal escape sequence with the encoded Unicode code point
-			// Support: IE <=11+
-			// For values outside the Basic Multilingual Plane (BMP), manually construct a
-			// surrogate pair
+			 
 			high < 0 ?
 				String.fromCharCode( high + 0x10000 ) :
 				String.fromCharCode( high >> 10 | 0xD800, high & 0x3FF | 0xDC00 );
@@ -774,9 +721,7 @@ function Sizzle( selector, context, results, seed ) {
 		context = context || document;
 
 		if ( documentIsHTML ) {
-
-			// If the selector is sufficiently simple, try using a "get*By*" DOM method
-			// (excepting DocumentFragment context, where the methods don't exist)
+			 
 			if ( nodeType !== 11 && ( match = rquickExpr.exec( selector ) ) ) {
 
 				// ID selector
@@ -838,13 +783,7 @@ function Sizzle( selector, context, results, seed ) {
 				newSelector = selector;
 				newContext = context;
 
-				// qSA considers elements outside a scoping root when evaluating child or
-				// descendant combinators, which is not what we want.
-				// In such cases, we work around the behavior by prefixing every selector in the
-				// list with an ID selector referencing the scope context.
-				// The technique has to be used as well when a leading combinator is used
-				// as such selectors are not recognized by querySelectorAll.
-				// Thanks to Andrew Dupont for this technique.
+		 
 				if ( nodeType === 1 &&
 					( rdescend.test( selector ) || rcombinators.test( selector ) ) ) {
 
@@ -893,13 +832,7 @@ function Sizzle( selector, context, results, seed ) {
 	// All others
 	return select( selector.replace( rtrim, "$1" ), context, results, seed );
 }
-
-/**
- * Create key-value caches of limited size
- * @returns {function(string, object)} Returns the Object data after storing it on itself with
- *	property name the (space-suffixed) string and (if the cache is larger than Expr.cacheLength)
- *	deleting the oldest entry
- */
+ 
 function createCache() {
 	var keys = [];
 
@@ -915,20 +848,12 @@ function createCache() {
 	}
 	return cache;
 }
-
-/**
- * Mark a function for special use by Sizzle
- * @param {Function} fn The function to mark
- */
+ 
 function markFunction( fn ) {
 	fn[ expando ] = true;
 	return fn;
 }
-
-/**
- * Support testing using an element
- * @param {Function} fn Passed the created element and returns a boolean result
- */
+ 
 function assert( fn ) {
 	var el = document.createElement( "fieldset" );
 
@@ -947,12 +872,7 @@ function assert( fn ) {
 		el = null;
 	}
 }
-
-/**
- * Adds the same handler for all of the specified attrs
- * @param {String} attrs Pipe-separated list of attributes
- * @param {Function} handler The method that will be applied
- */
+ 
 function addHandle( attrs, handler ) {
 	var arr = attrs.split( "|" ),
 		i = arr.length;
@@ -961,13 +881,7 @@ function addHandle( attrs, handler ) {
 		Expr.attrHandle[ arr[ i ] ] = handler;
 	}
 }
-
-/**
- * Checks document order of two siblings
- * @param {Element} a
- * @param {Element} b
- * @returns {Number} Returns less than 0 if a precedes b, greater than 0 if a follows b
- */
+ 
 function siblingCheck( a, b ) {
 	var cur = b && a,
 		diff = cur && a.nodeType === 1 && b.nodeType === 1 &&
@@ -989,50 +903,29 @@ function siblingCheck( a, b ) {
 
 	return a ? 1 : -1;
 }
-
-/**
- * Returns a function to use in pseudos for input types
- * @param {String} type
- */
+ 
 function createInputPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
 		return name === "input" && elem.type === type;
 	};
 }
-
-/**
- * Returns a function to use in pseudos for buttons
- * @param {String} type
- */
+ 
 function createButtonPseudo( type ) {
 	return function( elem ) {
 		var name = elem.nodeName.toLowerCase();
 		return ( name === "input" || name === "button" ) && elem.type === type;
 	};
 }
-
-/**
- * Returns a function to use in pseudos for :enabled/:disabled
- * @param {Boolean} disabled true for :disabled; false for :enabled
- */
+ 
 function createDisabledPseudo( disabled ) {
 
 	// Known :disabled false positives: fieldset[disabled] > legend:nth-of-type(n+2) :can-disable
 	return function( elem ) {
-
-		// Only certain elements can match :enabled or :disabled
-		// https://html.spec.whatwg.org/multipage/scripting.html#selector-enabled
-		// https://html.spec.whatwg.org/multipage/scripting.html#selector-disabled
+ 
 		if ( "form" in elem ) {
 
-			// Check for inherited disabledness on relevant non-disabled elements:
-			// * listed form-associated elements in a disabled fieldset
-			//   https://html.spec.whatwg.org/multipage/forms.html#category-listed
-			//   https://html.spec.whatwg.org/multipage/forms.html#concept-fe-disabled
-			// * option elements in a disabled optgroup
-			//   https://html.spec.whatwg.org/multipage/forms.html#concept-option-disabled
-			// All such elements have a "form" property.
+			 
 			if ( elem.parentNode && elem.disabled === false ) {
 
 				// Option elements defer to a parent optgroup if present
@@ -1044,21 +937,15 @@ function createDisabledPseudo( disabled ) {
 					}
 				}
 
-				// Support: IE 6 - 11
-				// Use the isDisabled shortcut property to check for disabled fieldset ancestors
+			 
 				return elem.isDisabled === disabled ||
-
-					// Where there is no isDisabled, check manually
-					/* jshint -W018 */
+				 
 					elem.isDisabled !== !disabled &&
 					inDisabledFieldset( elem ) === disabled;
 			}
 
 			return elem.disabled === disabled;
-
-		// Try to winnow out elements that can't be disabled before trusting the disabled property.
-		// Some victims get caught in our net (label, legend, menu, track), but it shouldn't
-		// even exist on them, let alone have a boolean value.
+ 
 		} else if ( "label" in elem ) {
 			return elem.disabled === disabled;
 		}
@@ -1067,11 +954,7 @@ function createDisabledPseudo( disabled ) {
 		return false;
 	};
 }
-
-/**
- * Returns a function to use in pseudos for positionals
- * @param {Function} fn
- */
+ 
 function createPositionalPseudo( fn ) {
 	return markFunction( function( argument ) {
 		argument = +argument;
@@ -1089,63 +972,33 @@ function createPositionalPseudo( fn ) {
 		} );
 	} );
 }
-
-/**
- * Checks a node for validity as a Sizzle context
- * @param {Element|Object=} context
- * @returns {Element|Object|Boolean} The input node if acceptable, otherwise a falsy value
- */
+ 
 function testContext( context ) {
 	return context && typeof context.getElementsByTagName !== "undefined" && context;
 }
 
 // Expose support vars for convenience
 support = Sizzle.support = {};
-
-/**
- * Detects XML nodes
- * @param {Element|Object} elem An element or a document
- * @returns {Boolean} True iff elem is a non-HTML XML node
- */
+ 
 isXML = Sizzle.isXML = function( elem ) {
 	var namespace = elem.namespaceURI,
 		docElem = ( elem.ownerDocument || elem ).documentElement;
-
-	// Support: IE <=8
-	// Assume HTML when documentElement doesn't yet exist, such as inside loading iframes
-	// https://bugs.jquery.com/ticket/4833
+  
 	return !rhtml.test( namespace || docElem && docElem.nodeName || "HTML" );
 };
-
-/**
- * Sets document-related variables once based on the current document
- * @param {Element|Object} [doc] An element or document object to use to set the document
- * @returns {Object} Returns the current document
- */
+ 
 setDocument = Sizzle.setDocument = function( node ) {
 	var hasCompare, subWindow,
 		doc = node ? node.ownerDocument || node : preferredDoc;
-
-	// Return early if doc is invalid or already selected
-	// Support: IE 11+, Edge 17 - 18+
-	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
-	// eslint-disable-next-line eqeqeq
+ 
 	if ( doc == document || doc.nodeType !== 9 || !doc.documentElement ) {
 		return document;
 	}
-
-	// Update global variables
+	 
 	document = doc;
 	docElem = document.documentElement;
 	documentIsHTML = !isXML( document );
-
-	// Support: IE 9 - 11+, Edge 12 - 18+
-	// Accessing iframe documents after unload throws "permission denied" errors (jQuery #13936)
-	// Support: IE 11+, Edge 17 - 18+
-	// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-	// two documents; shallow comparisons work.
-	// eslint-disable-next-line eqeqeq
+ 
 	if ( preferredDoc != document &&
 		( subWindow = document.defaultView ) && subWindow.top !== subWindow ) {
 
@@ -1159,32 +1012,19 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 	}
 
-	// Support: IE 8 - 11+, Edge 12 - 18+, Chrome <=16 - 25 only, Firefox <=3.6 - 31 only,
-	// Safari 4 - 5 only, Opera <=11.6 - 12.x only
-	// IE/Edge & older browsers don't support the :scope pseudo-class.
-	// Support: Safari 6.0 only
-	// Safari 6.0 supports :scope but it's an alias of :root there.
+	 
 	support.scope = assert( function( el ) {
 		docElem.appendChild( el ).appendChild( document.createElement( "div" ) );
 		return typeof el.querySelectorAll !== "undefined" &&
 			!el.querySelectorAll( ":scope fieldset div" ).length;
 	} );
 
-	/* Attributes
-	---------------------------------------------------------------------- */
-
-	// Support: IE<8
-	// Verify that getAttribute really returns attributes and not properties
-	// (excepting IE8 booleans)
+	 
 	support.attributes = assert( function( el ) {
 		el.className = "i";
 		return !el.getAttribute( "className" );
 	} );
-
-	/* getElement(s)By*
-	---------------------------------------------------------------------- */
-
-	// Check if getElementsByTagName("*") returns only elements
+ 
 	support.getElementsByTagName = assert( function( el ) {
 		el.appendChild( document.createComment( "" ) );
 		return !el.getElementsByTagName( "*" ).length;
@@ -1193,10 +1033,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 	// Support: IE<9
 	support.getElementsByClassName = rnative.test( document.getElementsByClassName );
 
-	// Support: IE<10
-	// Check if getElementById returns elements by name
-	// The broken getElementById methods don't pick up programmatically-set names,
-	// so use a roundabout getElementsByName test
+ 
 	support.getById = assert( function( el ) {
 		docElem.appendChild( el ).id = expando;
 		return !document.getElementsByName || !document.getElementsByName( expando ).length;
@@ -1297,48 +1134,25 @@ setDocument = Sizzle.setDocument = function( node ) {
 		}
 	};
 
-	/* QSA/matchesSelector
-	---------------------------------------------------------------------- */
-
-	// QSA and matchesSelector support
-
-	// matchesSelector(:active) reports false when true (IE9/Opera 11.5)
+	 
 	rbuggyMatches = [];
-
-	// qSa(:focus) reports false when true (Chrome 21)
-	// We allow this because of a bug in IE8/9 that throws an error
-	// whenever `document.activeElement` is accessed on an iframe
-	// So, we allow :focus to pass through QSA all the time to avoid the IE error
-	// See https://bugs.jquery.com/ticket/13378
+ 
 	rbuggyQSA = [];
 
 	if ( ( support.qsa = rnative.test( document.querySelectorAll ) ) ) {
-
-		// Build QSA regex
-		// Regex strategy adopted from Diego Perini
+		 
 		assert( function( el ) {
 
 			var input;
-
-			// Select is set to empty string on purpose
-			// This is to test IE's treatment of not explicitly
-			// setting a boolean content attribute,
-			// since its presence should be enough
-			// https://bugs.jquery.com/ticket/12359
+ 
 			docElem.appendChild( el ).innerHTML = "<a id='" + expando + "'></a>" +
 				"<select id='" + expando + "-\r\\' msallowcapture=''>" +
 				"<option selected=''></option></select>";
-
-			// Support: IE8, Opera 11-12.16
-			// Nothing should be selected when empty strings follow ^= or $= or *=
-			// The test attribute must be unknown in Opera but "safe" for WinRT
-			// https://msdn.microsoft.com/en-us/library/ie/hh465388.aspx#attribute_section
+ 
 			if ( el.querySelectorAll( "[msallowcapture^='']" ).length ) {
 				rbuggyQSA.push( "[*^$]=" + whitespace + "*(?:''|\"\")" );
 			}
-
-			// Support: IE8
-			// Boolean attributes and "value" are not treated correctly
+			 
 			if ( !el.querySelectorAll( "[selected]" ).length ) {
 				rbuggyQSA.push( "\\[" + whitespace + "*(?:value|" + booleans + ")" );
 			}
@@ -1348,11 +1162,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				rbuggyQSA.push( "~=" );
 			}
 
-			// Support: IE 11+, Edge 15 - 18+
-			// IE 11/Edge don't find elements on a `[name='']` query in some cases.
-			// Adding a temporary attribute to the document before the selection works
-			// around the issue.
-			// Interestingly, IE 10 & older don't seem to have the issue.
+	 
 			input = document.createElement( "input" );
 			input.setAttribute( "name", "" );
 			el.appendChild( input );
@@ -1396,22 +1206,16 @@ setDocument = Sizzle.setDocument = function( node ) {
 			if ( el.querySelectorAll( "[name=d]" ).length ) {
 				rbuggyQSA.push( "name" + whitespace + "*[*^$|!~]?=" );
 			}
-
-			// FF 3.5 - :enabled/:disabled and hidden elements (hidden elements are still enabled)
-			// IE8 throws error here and will not see later tests
+			 
 			if ( el.querySelectorAll( ":enabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
-
-			// Support: IE9-11+
-			// IE's :disabled selector does not pick up the children of disabled fieldsets
+			 
 			docElem.appendChild( el ).disabled = true;
 			if ( el.querySelectorAll( ":disabled" ).length !== 2 ) {
 				rbuggyQSA.push( ":enabled", ":disabled" );
 			}
-
-			// Support: Opera 10 - 11 only
-			// Opera 10-11 does not throw on post-comma invalid pseudos
+			 
 			el.querySelectorAll( "*,:x" );
 			rbuggyQSA.push( ",.*:" );
 		} );
@@ -1438,14 +1242,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 
 	rbuggyQSA = rbuggyQSA.length && new RegExp( rbuggyQSA.join( "|" ) );
 	rbuggyMatches = rbuggyMatches.length && new RegExp( rbuggyMatches.join( "|" ) );
-
-	/* Contains
-	---------------------------------------------------------------------- */
+	 
 	hasCompare = rnative.test( docElem.compareDocumentPosition );
-
-	// Element contains another
-	// Purposefully self-exclusive
-	// As in, an element does not contain itself
+	 
 	contains = hasCompare || rnative.test( docElem.contains ) ?
 		function( a, b ) {
 			var adown = a.nodeType === 9 ? a.documentElement : a,
@@ -1467,10 +1266,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 			return false;
 		};
 
-	/* Sorting
-	---------------------------------------------------------------------- */
-
-	// Document order sorting
+ 
 	sortOrder = hasCompare ?
 	function( a, b ) {
 
@@ -1485,12 +1281,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 		if ( compare ) {
 			return compare;
 		}
-
-		// Calculate position if both inputs belong to the same document
-		// Support: IE 11+, Edge 17 - 18+
-		// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-		// two documents; shallow comparisons work.
-		// eslint-disable-next-line eqeqeq
+ 
 		compare = ( a.ownerDocument || a ) == ( b.ownerDocument || b ) ?
 			a.compareDocumentPosition( b ) :
 
@@ -1500,21 +1291,13 @@ setDocument = Sizzle.setDocument = function( node ) {
 		// Disconnected nodes
 		if ( compare & 1 ||
 			( !support.sortDetached && b.compareDocumentPosition( a ) === compare ) ) {
-
-			// Choose the first element that is related to our preferred document
-			// Support: IE 11+, Edge 17 - 18+
-			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
-			// eslint-disable-next-line eqeqeq
+ 
 			if ( a == document || a.ownerDocument == preferredDoc &&
 				contains( preferredDoc, a ) ) {
 				return -1;
 			}
 
-			// Support: IE 11+, Edge 17 - 18+
-			// IE/Edge sometimes throw a "Permission denied" error when strict-comparing
-			// two documents; shallow comparisons work.
-			// eslint-disable-next-line eqeqeq
+		 
 			if ( b == document || b.ownerDocument == preferredDoc &&
 				contains( preferredDoc, b ) ) {
 				return 1;
@@ -3920,10 +3703,7 @@ jQuery.extend( {
 		jQuery.each( tuples, function( i, tuple ) {
 			var list = tuple[ 2 ],
 				stateString = tuple[ 5 ];
-
-			// promise.progress = list.add
-			// promise.done = list.add
-			// promise.fail = list.add
+				 
 			promise[ tuple[ 1 ] ] = list.add;
 
 			// Handle state
@@ -3951,23 +3731,13 @@ jQuery.extend( {
 					tuples[ 0 ][ 3 ].lock
 				);
 			}
-
-			// progress_handlers.fire
-			// fulfilled_handlers.fire
-			// rejected_handlers.fire
+ 
 			list.add( tuple[ 3 ].fire );
-
-			// deferred.notify = function() { deferred.notifyWith(...) }
-			// deferred.resolve = function() { deferred.resolveWith(...) }
-			// deferred.reject = function() { deferred.rejectWith(...) }
+			 
 			deferred[ tuple[ 0 ] ] = function() {
 				deferred[ tuple[ 0 ] + "With" ]( this === deferred ? undefined : this, arguments );
 				return this;
-			};
-
-			// deferred.notifyWith = list.fireWith
-			// deferred.resolveWith = list.fireWith
-			// deferred.rejectWith = list.fireWith
+			}; 
 			deferred[ tuple[ 0 ] + "With" ] = list.fireWith;
 		} );
 
@@ -4033,9 +3803,7 @@ jQuery.extend( {
 	}
 } );
 
-
-// These usually indicate a programmer mistake during development,
-// warn about them ASAP rather than swallowing them by default.
+ 
 var rerrorNames = /^(Eval|Internal|Range|Reference|Syntax|Type|URI)Error$/;
 
 jQuery.Deferred.exceptionHook = function( error, stack ) {
@@ -4065,11 +3833,7 @@ var readyList = jQuery.Deferred();
 jQuery.fn.ready = function( fn ) {
 
 	readyList
-		.then( fn )
-
-		// Wrap jQuery.readyException in a function so that the lookup
-		// happens at the time of error handling instead of callback
-		// registration.
+		.then( fn ) 
 		.catch( function( error ) {
 			jQuery.readyException( error );
 		} );
@@ -4078,12 +3842,9 @@ jQuery.fn.ready = function( fn ) {
 };
 
 jQuery.extend( {
-
-	// Is the DOM ready to be used? Set to true once it occurs.
+	 
 	isReady: false,
-
-	// A counter to track how many items to wait for before
-	// the ready event fires. See #6781
+	 
 	readyWait: 1,
 
 	// Handle when the DOM is ready
@@ -4115,11 +3876,7 @@ function completed() {
 	window.removeEventListener( "load", completed );
 	jQuery.ready();
 }
-
-// Catch cases where $(document).ready() is called
-// after the browser event has already occurred.
-// Support: IE <=9 - 10 only
-// Older IE sometimes signals "interactive" too soon
+ 
 if ( document.readyState === "complete" ||
 	( document.readyState !== "loading" && !document.documentElement.doScroll ) ) {
 
@@ -4134,12 +3891,7 @@ if ( document.readyState === "complete" ||
 	// A fallback to window.onload, that will always work
 	window.addEventListener( "load", completed );
 }
-
-
-
-
-// Multifunctional method to get and set values of a collection
-// The value/s can optionally be executed if it's a function
+ 
 var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 	var i = 0,
 		len = elems.length,
@@ -4207,22 +3959,12 @@ var rmsPrefix = /^-ms-/,
 // Used by camelCase as callback to replace()
 function fcamelCase( _all, letter ) {
 	return letter.toUpperCase();
-}
-
-// Convert dashed to camelCase; used by the css and data modules
-// Support: IE <=9 - 11, Edge 12 - 15
-// Microsoft forgot to hump their vendor prefix (#9572)
+} 
 function camelCase( string ) {
 	return string.replace( rmsPrefix, "ms-" ).replace( rdashAlpha, fcamelCase );
 }
 var acceptData = function( owner ) {
-
-	// Accepts only:
-	//  - Node
-	//    - Node.ELEMENT_NODE
-	//    - Node.DOCUMENT_NODE
-	//  - Object
-	//    - Any
+ 
 	return owner.nodeType === 1 || owner.nodeType === 9 || !( +owner.nodeType );
 };
 
@@ -7386,11 +7128,7 @@ function defaultPrefilter( elem, props, opts ) {
 
 	// Restrict "overflow" and "display" styles during box animations
 	if ( isBox && elem.nodeType === 1 ) {
-
-		// Support: IE <=9 - 11, Edge 12 - 15
-		// Record all 3 overflow attributes because IE does not infer the shorthand
-		// from identically-valued overflowX and overflowY and Edge just mirrors
-		// the overflowX value there.
+ 
 		opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
 
 		// Identify a display type, preferring old show/hide data over the CSS cascade
