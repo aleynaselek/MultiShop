@@ -16,7 +16,7 @@ namespace MultiShop.WebUI.Services.CargoServices.CargoCompanyServices
         }
 
         public async Task DeleteCargoCompanyAsync(int id)
-        {
+        { 
             await _httpClient.DeleteAsync("CargoCompanies?id=" + id);
         }
 
