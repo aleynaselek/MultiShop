@@ -9,5 +9,7 @@ namespace MultiShop.Cargo.DataAccessLayer.Abstract
 {
     public interface ICargoCustomerDal : IGerericDal<CargoCustomer>
     {
+        CargoCustomer GetCargoCustomerById(string id);
+
     }
 }
