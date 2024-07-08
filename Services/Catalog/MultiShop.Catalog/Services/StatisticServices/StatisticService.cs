@@ -17,7 +17,7 @@ namespace MultiShop.Catalog.Services.StatisticServices
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
             _productCollection = database.GetCollection<Product>(_databaseSettings.ProductCollectionName);
             _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);
-            _brandCollection = database.GetCollection<Brand>(_databaseSettings.BrandCollectionName); 
+            _brandCollection = database.GetCollection<Brand>(_databaseSettings.BrandCollectionName);
         }
 
         public async Task<long> GetBrandCount()
@@ -60,15 +60,15 @@ namespace MultiShop.Catalog.Services.StatisticServices
         {
             var pipeline = new BsonDocument[]
             {
-              new BsonDocument("$group",new BsonDocument
-              {
-                  {"_id",null },
-                  {"averagePrice",new BsonDocument("$avg","$ProductPrice") }
-              })
+                  new BsonDocument("$group",new BsonDocument
+                  {
+                      {"_id",null },
+                      {"averagePrice",new BsonDocument("$avg","$ProductPrice") }
+                  })
             };
             var result = await _productCollection.AggregateAsync<BsonDocument>(pipeline);
-            var price = result.FirstOrDefault().GetValue("averagePrice", decimal.Zero).AsDecimal;
-            return price;
+            var price = result.FirstOrDefault()?.GetValue("averagePrice", decimal.Zero).AsDecimal;
+            return price.GetValueOrDefault();
         }
 
         public Task<long> GetProductCount()
