@@ -10,7 +10,7 @@ namespace MultiShop.WebUI.Services.StatisticServices.MessageStatisticServices
         }
         public async Task<int> GetTotalMessageCount()
         {
-            var responseMessage = await _httpClient.GetAsync("UserMessage/GetTotalMessageCount");
+            var responseMessage = await _httpClient.GetAsync("UserMessages/GetTotalMessageCount");
             var values = await responseMessage.Content.ReadFromJsonAsync<int>();
             return values;
         }
