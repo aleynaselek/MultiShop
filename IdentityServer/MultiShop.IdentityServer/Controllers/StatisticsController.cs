@@ -16,7 +16,7 @@ namespace MultiShop.IdentityServer.Controllers
         {
             _userManager = userManager;
         }
-
+        
         [HttpGet] 
         public IActionResult GetUserCount()
         {
