@@ -64,14 +64,16 @@ namespace MultiShop.Message.Services
             await _messageContext.SaveChangesAsync();
         }
 
-        //public int GetMessageCountRate(string code)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<int> GetTotalMessageCount()
+        {
+            int values = await _messageContext.UserMessages.CountAsync();
+            return values;
+        }
 
-        //public Task<ResultMessageDto> GetCodeDetailByCodeAsync(string code)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<int> GetTotalMessageCountByReceiverId(string id)
+        {
+            var values = await _messageContext.UserMessages.Where(x => x.ReceiverId == id).CountAsync();
+            return values;
+        }
     }
 }
