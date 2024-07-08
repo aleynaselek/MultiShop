@@ -17,7 +17,7 @@ namespace MultiShop.Catalog.Services.StatisticServices
             var database = client.GetDatabase(_databaseSettings.DatabaseName);
             _productCollection = database.GetCollection<Product>(_databaseSettings.ProductCollectionName);
             _categoryCollection = database.GetCollection<Category>(_databaseSettings.CategoryCollectionName);
-            _brandCollection = database.GetCollection<Brand>(_databaseSettings.BrandCollectionName);
+            _brandCollection = database.GetCollection<Brand>(_databaseSettings.BrandCollectionName); 
         }
 
         public async Task<long> GetBrandCount()
