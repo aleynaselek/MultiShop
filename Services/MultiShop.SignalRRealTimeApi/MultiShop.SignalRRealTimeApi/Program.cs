@@ -1,3 +1,5 @@
+using MultiShop.SignalRRealTimeApi.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -34,5 +36,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHub<SignalRHub>("signalrhub");
 
 app.Run();
