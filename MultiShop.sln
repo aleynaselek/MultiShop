@@ -35,6 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.IdentityServer", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Requirements", "Requirements", "{DFBC8D6A-6576-474B-ADEA-B1014DA91B0F}"
 	ProjectSection(SolutionItems) = preProject
+		cloudKey.txt = cloudKey.txt
 		IdentityServerVersionErrorSolution.txt = IdentityServerVersionErrorSolution.txt
 		OcelotCodeExample.txt = OcelotCodeExample.txt
 		OcelotLink.txt = OcelotLink.txt
@@ -89,7 +90,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.Message", "Servic
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SignalRRealTime", "SignalRRealTime", "{AB56E7A4-3B71-4EBE-BB60-D3405F4A651B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.SignalRRealTimeApi", "Services\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi.csproj", "{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultiShop.SignalRRealTimeApi", "Services\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi\MultiShop.SignalRRealTimeApi.csproj", "{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiShop.Images.WebUI", "Services\Images\MultiShop.Images.WebUI\MultiShop.Images.WebUI\MultiShop.Images.WebUI.csproj", "{4A7C9762-F2E9-4606-A424-968DF9974C5E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -181,6 +184,10 @@ Global
 		{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4A7C9762-F2E9-4606-A424-968DF9974C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A7C9762-F2E9-4606-A424-968DF9974C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A7C9762-F2E9-4606-A424-968DF9974C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A7C9762-F2E9-4606-A424-968DF9974C5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -220,6 +227,7 @@ Global
 		{30728338-46F0-4E2E-B5C3-A7CFFF6F9CE3} = {8A76E9EC-2100-4DC8-ACA7-D07EC0740F9A}
 		{AB56E7A4-3B71-4EBE-BB60-D3405F4A651B} = {CC189B92-89D7-46D0-BFB9-6CE551A4C9FD}
 		{E6E030BD-75AF-4F6B-BBA7-5C1526E9BFE0} = {AB56E7A4-3B71-4EBE-BB60-D3405F4A651B}
+		{4A7C9762-F2E9-4606-A424-968DF9974C5E} = {DABC03DD-16FA-4DCB-BDBD-DEBCFCFA7D8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0859360E-C7B5-4AAD-98FF-4A6D5CAAA26B}
