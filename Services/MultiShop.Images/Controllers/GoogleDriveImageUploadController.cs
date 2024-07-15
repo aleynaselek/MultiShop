@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MultiShop.Images.Controllers
 {
     [AllowAnonymous]
-    [Route("api/[controller]")]
+    [Route("api/[controller]")] 
     [ApiController] 
     public class GoogleDriveImageUploadController : ControllerBase
     {
