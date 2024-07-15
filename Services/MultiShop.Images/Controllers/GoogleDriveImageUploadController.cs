@@ -12,4 +12,3 @@ namespace MultiShop.Images.Controllers
 
     }
 }
- 
