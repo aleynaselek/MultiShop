@@ -6,7 +6,7 @@ namespace MultiShop.Images.Controllers
 {
     [AllowAnonymous]
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController] 
     public class GoogleDriveImageUploadController : ControllerBase
     {
 
